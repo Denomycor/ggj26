@@ -12,4 +12,4 @@ func init_level_context() -> void:
 	LevelContext.level = self
 	LevelContext.player = $world/player
 	LevelContext.cop_coordinator = $world/cop_coordinator
-
+	LevelContext.game_overlay = $game_overlay

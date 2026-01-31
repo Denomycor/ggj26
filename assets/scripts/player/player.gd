@@ -54,3 +54,6 @@ func _check_for_groups():
 	masked_in = false
 	if prev_masked_in:
 		print("Not Masked In")
+
+	if Input.is_physical_key_pressed(KEY_L):
+		LevelContext.game_overlay.toggle_bucket_list.emit()
