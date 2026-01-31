@@ -15,5 +15,6 @@ texture = ExtResource("2_enw5w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1649869446]
 shape = SubResource("CircleShape2D_apdos")
+disabled = true
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1078771623]
