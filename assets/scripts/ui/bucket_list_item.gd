@@ -1,6 +1,6 @@
-extends Control
+class_name BucketListItem extends Control
 
-@export var task_name: String = ""
+var task_name: String = ""
 
 @onready var label: Label = $Label
 @onready var checkbox_checked: Sprite2D = $CheckboxChecked
