@@ -2,9 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://cq1yfaad8jj5m" path="res://assets/scenes/player/player.tscn" id="1_c33ao"]
 [ext_resource type="Script" uid="uid://dlnow3s8pk5d0" path="res://assets/scripts/level.gd" id="1_v4g74"]
-[ext_resource type="PackedScene" uid="uid://ciqhni7hbvieb" path="res://assets/scenes/npcs/npc.tscn" id="2_h4syp"]
 [ext_resource type="PackedScene" uid="uid://dq5fpqqtr4kn1" path="res://assets/scenes/ui/game_overlay.tscn" id="3_lrkoh"]
-[ext_resource type="Script" uid="uid://oj0kfb0sgqxb" path="res://assets/scripts/cop_coordinator.gd" id="3_ndvdw"]
+[ext_resource type="Script" path="res://assets/scripts/cop_coordinator.gd" id="3_ndvdw"]
 [ext_resource type="Script" uid="uid://btqd5y1k53ymj" path="res://assets/scripts/npc/manager/npc_manager.gd" id="4_ndvdw"]
 [ext_resource type="PackedScene" uid="uid://i5nvxlveiso" path="res://assets/scenes/cops/cop.tscn" id="4_vpecr"]
 
@@ -26,9 +25,6 @@ mask_range = 400.0
 [node name="Camera2D" type="Camera2D" parent="world/player" unique_id=797329163]
 zoom = Vector2(0.25, 0.25)
 
-[node name="npc" parent="world" unique_id=779053705 instance=ExtResource("2_h4syp")]
-position = Vector2(1652, 413)
-
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="world" unique_id=1625079109]
 position = Vector2(-8, -8)
 navigation_polygon = SubResource("NavigationPolygon_c33ao")
@@ -48,6 +44,7 @@ position = Vector2(200, 376)
 position = Vector2(616, 120)
 
 [node name="cop" parent="world" unique_id=315845497 node_paths=PackedStringArray("cop_coordinator") instance=ExtResource("4_vpecr")]
+collision_layer = 0
 cop_coordinator = NodePath("../cop_coordinator")
 
 [node name="game_overlay" parent="." unique_id=44092131 instance=ExtResource("3_lrkoh")]

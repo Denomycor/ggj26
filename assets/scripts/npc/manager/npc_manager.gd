@@ -1,6 +1,7 @@
 class_name NpcManager extends Node
 
-const NUM_GROUPS: int = 12
+const NUM_GROUPS: int = 10
+const NUM_NPCS: int = 100
 const GROUP_SIZE_MIN: int = 5
 const GROUP_SIZE_MAX: int = 8
 const SPAWN_AREA_WIDTH: float = 9500.0
@@ -47,26 +48,29 @@ const group_colors: Array[Color] = [
 	Color.PINK,
 ]
 
-## Spawns a new NPC instance with a modified color
-func _spawn_grouped_npc(group: GROUPS) -> Npc:
-	var npc: Npc = NPC_SCENE.instantiate()
-	var sprite = npc.get_node("Sprite2D")
-	sprite.modulate = group_colors[group]
-	npc.group = group
-	return npc
-
-
 var groups: Array[Array] = []
 
 
 func _ready() -> void:
-	_spawn_npc_groups()
+	_spawn_all_random_npcs()
 
 
 func _process(_delta: float) -> void:
 	_update_group_destinations()
 	pass 
 
+func _spawn_all_random_npcs() -> void:
+	for _i in range(NUM_NPCS):
+		_spawn_random_npc()
+
+## Spawns a single NPC at a random position with a random group within the spawn area
+func _spawn_random_npc() -> Npc:
+	var npc: Npc = NPC_SCENE.instantiate()
+	npc.position = _get_random_position_in_area()
+	npc.group = _get_random_group()
+	npc.modulate = group_colors[npc.group]
+	add_child(npc)
+	return npc
 
 ## Spawns all NPC groups in random positions within the spawn area
 func _spawn_npc_groups() -> void:
@@ -92,6 +96,13 @@ func _spawn_npc_groups() -> void:
 		# Set initial destination for the group
 		_set_group_destination(group, _get_random_position_in_area())
 
+## Spawns a new NPC instance with a modified color
+func _spawn_grouped_npc(group: GROUPS) -> Npc:
+	var npc: Npc = NPC_SCENE.instantiate()
+	var sprite = npc.get_node("Sprite2D")
+	sprite.modulate = group_colors[group]
+	npc.group = group
+	return npc
 
 ## Checks each group and assigns new destinations if they've reached their previous one
 func _update_group_destinations() -> void:
@@ -126,3 +137,6 @@ func _get_random_position_in_area() -> Vector2:
 		randf_range(0.0, SPAWN_AREA_WIDTH),
 		randf_range(0.0, SPAWN_AREA_HEIGHT)
 	)
+
+func _get_random_group() -> GROUPS:
+	return randi_range(1, NUM_GROUPS) as GROUPS
