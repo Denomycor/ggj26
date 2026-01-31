@@ -9,9 +9,13 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_ratu8"]
 radius = 56.142673
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_xvhxs"]
+radius = 300.0
+
 [node name="player" type="CharacterBody2D" unique_id=91995908]
 collision_mask = 4
 script = ExtResource("1_ratu8")
+mask_range = 100.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1616018038]
 texture = ExtResource("1_oqktf")
@@ -27,3 +31,10 @@ stream = ExtResource("4_wg42c")
 volume_db = -8.748
 autoplay = true
 script = ExtResource("5_xvhxs")
+
+[node name="mask_area" type="Area2D" parent="." unique_id=1226093289]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mask_area" unique_id=1127710162]
+shape = SubResource("CircleShape2D_xvhxs")

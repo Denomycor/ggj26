@@ -3,20 +3,35 @@
 [ext_resource type="Script" uid="uid://djimr6b07cett" path="res://assets/scripts/npc/npc.gd" id="1_be1e5"]
 [ext_resource type="Texture2D" uid="uid://4y40e1ouxtbf" path="res://icon.svg" id="2_enw5w"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_apdos"]
-radius = 59.03389
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_be1e5"]
+height = 76.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_be1e5"]
 
 [node name="npc" type="CharacterBody2D" unique_id=779053705]
 collision_layer = 2
-collision_mask = 4
+collision_mask = 7
 script = ExtResource("1_be1e5")
+neighbor_radius = 400.0
+separation_distance = 120.0
+cohesion_weight = 0.5
+destination_weight = 0.3
+sensitivity = 6.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1458235717]
 modulate = Color(0.30397037, 0.3039704, 0.30397037, 1)
 texture = ExtResource("2_enw5w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1649869446]
-shape = SubResource("CircleShape2D_apdos")
-disabled = true
+position = Vector2(0, 54)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_be1e5")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1078771623]
+
+[node name="neighbor_area" type="Area2D" parent="." unique_id=902220728]
+collision_layer = 0
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="neighbor_area" unique_id=238239933]
+shape = SubResource("CircleShape2D_be1e5")
