@@ -5,8 +5,14 @@ const SPEED := 200.0
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 @export var neighbor_radius: float = 0
 @export var separation_distance: float = 50.0
-@export var max_speed: float = 300.0
-@export var mass: float = 0.0001
+@export var max_speed: float = 400
+
+var cohesion_weight: float = 1
+var separation_weight: float = 1.5
+var destination_weight: float = 0.1
+var sensitivity: float = 10
+
+var destination: Vector2 = Vector2.ZERO
 
 @onready var neighbor_area: Area2D = $neighbor_area
 
@@ -19,22 +25,51 @@ func _ready() -> void:
 	_set_neighbor_range(neighbor_radius)
 	state_machine.add_state(MovingNpc.new("moving"))
 	state_machine.add_state(IdleNpc.new("idle"))
-	state_machine.add_state(FlockingNpc.new("flocking"))
-	state_machine.starting_state("flocking", null)
+	state_machine.starting_state("moving", null)
 
 
 func _physics_process(delta: float) -> void:
 	state_machine.physics_process(delta)
 
-
-## Sets a new destination for the NPC to move towards
-func set_destination(destination: Vector2) -> void:
-	state_machine.transition(state_machine.current_state, "moving", destination)
-
-
-## Returns true if the NPC has reached its destination and is idle
-func has_reached_destination() -> bool:
-	return state_machine.current_state.name == "idle"
-
 func _set_neighbor_range(_range: float):
 	neighbor_area.find_child("CollisionShape2D").shape.radius = _range
+
+func _get_cohesion_force() -> Vector2:
+	var force : Vector2 = Vector2.ZERO
+	var center_of_mass: Vector2 = Vector2.ZERO
+	var group_members: Array = _get_group_members()
+	for neighbor in group_members:
+		center_of_mass += neighbor.global_position
+	center_of_mass /= max(1, group_members.size())
+	if group_members.size() != 0:
+		force = center_of_mass - global_position
+	return force.normalized()
+
+func _get_separation_force() -> Vector2:
+	var force: Vector2 = Vector2.ZERO
+	var neighbors: Array = _get_neighbors()
+	for neighbor in neighbors:
+		if neighbor.global_position.distance_to(global_position) < separation_distance:
+			var diff: Vector2 = global_position - neighbor.global_position
+			force += diff.normalized() / diff.length()
+	force /= max(1, neighbors.size())
+	return force.normalized()
+
+func _get_destination_force() -> Vector2:
+	var force: Vector2 = destination - global_position
+	return force.normalized()
+
+func _get_neighbors() -> Array:
+	var neighbors: Array = []
+	for body in neighbor_area.get_overlapping_bodies():
+		if body is Npc and body != self or body is Player:
+			neighbors.append(body)
+	return neighbors
+
+func _get_group_members() -> Array:
+	var group_members: Array = []
+	for body in neighbor_area.get_overlapping_bodies():
+		if body is Npc and body != self or body is Player:
+			if body.group == group:
+				group_members.append(body)
+	return group_members
