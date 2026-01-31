@@ -34,3 +34,19 @@ func set_facing_front(value: bool) -> void:
 		$pivot/legs.texture = back_legs
 		$pivot/torso.texture = back_torso
 		$pivot/mask.texture = back_mask
+
+
+func change_mask_to_group(group: NpcManager.GROUPS) -> void:
+	if(group == NpcManager.GROUPS.RED):
+		back_mask = preload("res://assets/images/npc/masks/back_mask_1.png")
+		front_mask = preload("res://assets/images/npc/masks/front_mask_1.png")
+	elif(group == NpcManager.GROUPS.GREEN):
+		back_mask = preload("res://assets/images/npc/masks/back_mask_2.png")
+		front_mask = preload("res://assets/images/npc/masks/front_mask_2.png")
+	elif(group == NpcManager.GROUPS.BLUE):
+		back_mask = preload("res://assets/images/npc/masks/back_mask_3.png")
+		front_mask = preload("res://assets/images/npc/masks/front_mask_3.png")
+	elif(group == NpcManager.GROUPS.YELLOW):
+		back_mask = preload("res://assets/images/npc/masks/back_mask_4.png")
+		front_mask = preload("res://assets/images/npc/masks/front_mask_4.png")
+

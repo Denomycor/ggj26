@@ -1,10 +1,19 @@
 [gd_scene format=3 uid="uid://i5nvxlveiso"]
 
 [ext_resource type="Script" uid="uid://cmu3fh4rjaxeu" path="res://assets/scripts/cop/cop.gd" id="1_qedt4"]
-[ext_resource type="Texture2D" uid="uid://4y40e1ouxtbf" path="res://icon.svg" id="2_piff0"]
+[ext_resource type="PackedScene" path="res://assets/scenes/npcs/sprite_group.tscn" id="2_sv1yq"]
+[ext_resource type="Texture2D" uid="uid://yexviidhb5l" path="res://assets/images/cop/front_policeman_arms.png" id="3_fwfc6"]
+[ext_resource type="Texture2D" uid="uid://dcqq6ts3yu558" path="res://assets/images/cop/front_policeman_legs.png" id="4_d35w0"]
+[ext_resource type="Texture2D" uid="uid://c7xdrq7r4r8qj" path="res://assets/images/cop/front_policeman_chest.png" id="5_as7eb"]
+[ext_resource type="Texture2D" uid="uid://cbgvr8qu030b7" path="res://assets/images/cop/front_policeman_head.png" id="6_0hvg4"]
+[ext_resource type="Texture2D" uid="uid://bfhf5cveq36yr" path="res://assets/images/cop/back_policeman_arms.png" id="7_yn2ih"]
+[ext_resource type="Texture2D" uid="uid://6bo0hhs0trn4" path="res://assets/images/cop/back_policeman_legs.png" id="8_c3ytt"]
+[ext_resource type="Texture2D" uid="uid://ctov3scew2d2" path="res://assets/images/cop/back_policeman_chest.png" id="9_qku8t"]
+[ext_resource type="Texture2D" uid="uid://di0l4ocirxaxa" path="res://assets/images/cop/back_policeman_head.png" id="10_ophsm"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_803lo"]
-radius = 59.3043
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yfda7"]
+radius = 17.0
+height = 62.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qedt4"]
 radius = 51.0392
@@ -14,13 +23,35 @@ collision_layer = 2
 collision_mask = 4
 script = ExtResource("1_qedt4")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1942104405]
-modulate = Color(1, 0.26666668, 1, 1)
-texture = ExtResource("2_piff0")
+[node name="sprite_group" parent="." unique_id=796532361 instance=ExtResource("2_sv1yq")]
+front_arms = ExtResource("3_fwfc6")
+front_legs = ExtResource("4_d35w0")
+front_torso = ExtResource("5_as7eb")
+front_mask = ExtResource("6_0hvg4")
+back_arms = ExtResource("7_yn2ih")
+back_legs = ExtResource("8_c3ytt")
+back_torso = ExtResource("9_qku8t")
+back_mask = ExtResource("10_ophsm")
+
+[node name="arms" parent="sprite_group/pivot" parent_id_path=PackedInt32Array(796532361, 100948673) index="0" unique_id=807522690]
+position = Vector2(0, -94)
+texture = ExtResource("3_fwfc6")
+
+[node name="legs" parent="sprite_group/pivot" parent_id_path=PackedInt32Array(796532361, 100948673) index="1" unique_id=1673661748]
+texture = ExtResource("4_d35w0")
+
+[node name="torso" parent="sprite_group/pivot" parent_id_path=PackedInt32Array(796532361, 100948673) index="2" unique_id=874921155]
+position = Vector2(-1.9073486e-06, -105)
+texture = ExtResource("5_as7eb")
+
+[node name="mask" parent="sprite_group/pivot" parent_id_path=PackedInt32Array(796532361, 100948673) index="3" unique_id=1104511130]
+position = Vector2(-3.8146973e-06, -182)
+texture = ExtResource("6_0hvg4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1439833039]
-visible = false
-shape = SubResource("CircleShape2D_803lo")
+position = Vector2(0, 2)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_yfda7")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1870649544]
 
@@ -39,3 +70,5 @@ polygon = PackedVector2Array(-40, 32, -128, 256, 128, 256, 40, 32)
 [node name="chasingRaycast" type="RayCast2D" parent="." unique_id=1029449567]
 enabled = false
 target_position = Vector2(0, 0)
+
+[editable path="sprite_group"]

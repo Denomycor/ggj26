@@ -1,6 +1,6 @@
 class_name NpcManager extends Node
 
-@export var NUM_GROUPS := 6
+@export var NUM_GROUPS := 4
 @export var MIN_NPCS_PER_GROUP := 5
 @export var MAX_NPCS_PER_GROUP := 8
 @export var GROUP_AREA_RELATIVE_SIZE := 0.2
@@ -17,16 +17,6 @@ enum GROUPS {
 	GREEN,
 	BLUE,
 	YELLOW,
-	PURPLE,
-	ORANGE,
-	BROWN,
-	CYAN,
-	VIOLET,
-	INDIGO,
-	LIME,
-	MAROON,
-	OLIVE,
-	PINK
 }
 
 const group_colors: Array[Color] = [
@@ -46,6 +36,7 @@ const group_colors: Array[Color] = [
 	Color.OLIVE,
 	Color.PINK,
 ]
+
 
 var groups: Dictionary[GROUPS, Array] = {}
 var destinations: Dictionary[GROUPS, Area2D] = {}
@@ -111,8 +102,7 @@ func _spawn_npc_groups() -> void:
 ## Spawns a new NPC instance with a modified color
 func _spawn_grouped_npc(group: GROUPS) -> Npc:
 	var npc: Npc = NPC_SCENE.instantiate()
-	# var sprite = npc.get_node("Sprite2D")
-	# sprite.modulate = group_colors[group]
+	npc.get_node("sprite_group").change_mask_to_group(group)
 	npc.group = group
 	return npc
 
@@ -133,3 +123,4 @@ func get_random_position_in_rectangle(area: Area2D) -> Vector2:
 
 func _get_random_group() -> GROUPS:
 	return randi_range(1, NUM_GROUPS) as GROUPS
+

@@ -23,6 +23,8 @@ func enter(_previous_state: State, args) -> void:
 	target_last_know_pos = target.global_position
 	path_timer.start()
 	chasing_raycast.enabled = true
+	cop.get_node("sprite_group").animation_player.play("move", -1, 0.7)
+	cop.get_node("sprite_group").animation_player.seek(randf()*0.4)
 
 
 func physics_process(_delta: float) -> void:
@@ -50,6 +52,7 @@ func exit(_next_state: State) -> void:
 	path_timer.stop()
 	cop.velocity = Vector2.ZERO
 	chasing_raycast.enabled = false
+	cop.get_node("sprite_group").animation_player.stop()
 
 
 func set_target_path() -> void:
