@@ -34,6 +34,7 @@ func _spawn_colored_npc(color: Color) -> Npc:
 	var npc: Npc = NPC_SCENE.instantiate()
 	var sprite = npc.get_node("Sprite2D")
 	sprite.modulate = color
+	npc.add_to_group("NPCs")
 	return npc
 
 

@@ -4,9 +4,10 @@
 [ext_resource type="Script" uid="uid://dlnow3s8pk5d0" path="res://assets/scripts/level.gd" id="1_v4g74"]
 [ext_resource type="PackedScene" uid="uid://ciqhni7hbvieb" path="res://assets/scenes/npcs/npc.tscn" id="2_h4syp"]
 [ext_resource type="PackedScene" uid="uid://dq5fpqqtr4kn1" path="res://assets/scenes/ui/game_overlay.tscn" id="3_lrkoh"]
-[ext_resource type="Script" uid="uid://oj0kfb0sgqxb" path="res://assets/scripts/cop_coordinator.gd" id="3_ndvdw"]
+[ext_resource type="Script" path="res://assets/scripts/cop_coordinator.gd" id="3_ndvdw"]
 [ext_resource type="Script" uid="uid://btqd5y1k53ymj" path="res://assets/scripts/npc/manager/npc_manager.gd" id="4_ndvdw"]
 [ext_resource type="PackedScene" uid="uid://i5nvxlveiso" path="res://assets/scenes/cops/cop.tscn" id="4_vpecr"]
+[ext_resource type="AudioStream" uid="uid://i5q8n4kgn4v1" path="res://assets/sounds/Classicals.de - Bach - Cello Suite No.1 in G major, BWV 1007 - I. Prelude.mp3" id="8_ki31b"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_c33ao"]
 vertices = PackedVector2Array(9582.023, 5373.992, 18, 5366, 18, 17.992188, 9597.969, 10)
@@ -55,3 +56,6 @@ cop_coordinator = NodePath("../cop_coordinator")
 
 [node name="npcManager" type="Node" parent="." unique_id=1160828432]
 script = ExtResource("4_ndvdw")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1233193529]
+stream = ExtResource("8_ki31b")

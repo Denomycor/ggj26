@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cq1yfaad8jj5m"]
+
+[ext_resource type="Texture2D" uid="uid://4y40e1ouxtbf" path="res://icon.svg" id="1_oqktf"]
+[ext_resource type="Script" uid="uid://dbic3yapawss5" path="res://assets/scripts/player/player.gd" id="1_ratu8"]
+[ext_resource type="AudioStream" uid="uid://d1qpxkj278eer" path="res://assets/sounds/running-6358.mp3" id="3_xo733"]
+[ext_resource type="AudioStream" uid="uid://4a65lbensro3" path="res://assets/sounds/generic-crowd-background-noise-31310.mp3" id="4_wg42c"]
+[ext_resource type="Script" uid="uid://c7jgwule402yb" path="res://assets/scripts/player/background_talking.gd" id="5_xvhxs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ratu8"]
+radius = 56.142673
+
+[node name="player" type="CharacterBody2D" unique_id=91995908]
+script = ExtResource("1_ratu8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1616018038]
+texture = ExtResource("1_oqktf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1766660725]
+shape = SubResource("CircleShape2D_ratu8")
+
+[node name="running_sfx" type="AudioStreamPlayer2D" parent="." unique_id=622364278]
+stream = ExtResource("3_xo733")
+
+[node name="background_talking_sfx" type="AudioStreamPlayer2D" parent="." unique_id=1908508387]
+stream = ExtResource("4_wg42c")
+volume_db = -8.748
+autoplay = true
+script = ExtResource("5_xvhxs")

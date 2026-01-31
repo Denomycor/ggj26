@@ -10,6 +10,7 @@ var state_machine := StateMachine.new(self)
 
 
 func _ready() -> void:
+	add_to_group('NPCs')
 	state_machine.add_state(MovingNpc.new("moving"))
 	state_machine.add_state(IdleNpc.new("idle"))
 	state_machine.starting_state("idle", null)
