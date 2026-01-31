@@ -11,4 +11,3 @@ func _ready() -> void:
 func populate_level_context() -> void:
 	LevelContext.level = self
 	LevelContext.player = $world/player
-

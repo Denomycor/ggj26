@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dgxa370etbflp"]
+
+[ext_resource type="Script" uid="uid://de62e41pv85wl" path="res://assets/scripts/ui/bucket_list_item.gd" id="1_5brnh"]
+[ext_resource type="Texture2D" uid="uid://pyn7sgrvfhqf" path="res://assets/images/checkbox-checked.svg" id="1_lmlu6"]
+[ext_resource type="Texture2D" uid="uid://c315i35t1oa0e" path="res://assets/images/checkbox-unchecked.svg" id="2_5brnh"]
+
+[node name="BucketListItems" type="Control" unique_id=1023708356]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 3
+anchor_right = 0.43300003
+anchor_bottom = 0.23700002
+offset_right = 0.3199768
+offset_bottom = 0.019989014
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5brnh")
+
+[node name="CheckboxChecked" type="Sprite2D" parent="." unique_id=2126680107]
+visible = false
+position = Vector2(31.999998, 31.999998)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_lmlu6")
+
+[node name="CheckboxUnchecked" type="Sprite2D" parent="." unique_id=330852493]
+position = Vector2(31.999998, 31.999998)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_5brnh")
+
+[node name="Label" type="Label" parent="." unique_id=250719328]
+layout_mode = 0
+offset_left = 64.0
+offset_right = 424.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+text = "test task"
+vertical_alignment = 1
