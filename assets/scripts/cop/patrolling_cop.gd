@@ -18,7 +18,7 @@ func physics_process(_delta: float) -> void:
 	if(!cop.nav_agent.is_navigation_finished()):
 
 		# spotted the player
-		if(cop.vision_cone.has_overlapping_bodies()):
+		if(cop.is_player_seen()):
 			state_machine.transition(self, "chasing", LevelContext.player)
 			return
 
@@ -26,6 +26,8 @@ func physics_process(_delta: float) -> void:
 		var direction := cop.position.direction_to(next_pos)
 		cop.velocity = direction * cop.BASE_SPEED
 		cop.move_and_slide()
+		cop.set_cone_target(cop.nav_agent.target_position)
+		cop.move_cone_towards_target(_delta, cop.base_cone_angular_speed)
 	else:
 		pick_new_poi()
 

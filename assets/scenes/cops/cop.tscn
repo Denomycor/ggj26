@@ -2,17 +2,23 @@
 
 [ext_resource type="Script" uid="uid://cmu3fh4rjaxeu" path="res://assets/scripts/cop/cop.gd" id="1_qedt4"]
 [ext_resource type="Texture2D" uid="uid://4y40e1ouxtbf" path="res://icon.svg" id="2_piff0"]
+[ext_resource type="Texture2D" uid="uid://c315i35t1oa0e" path="res://assets/images/checkbox-unchecked.svg" id="3_piff0"]
+[ext_resource type="Texture2D" uid="uid://pyn7sgrvfhqf" path="res://assets/images/checkbox-checked.svg" id="4_803lo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_803lo"]
 radius = 59.3043
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qedt4"]
-radius = 51.0392
+radius = 302.13406
 
 [node name="cop" type="CharacterBody2D" unique_id=315845497]
 collision_layer = 2
 collision_mask = 4
 script = ExtResource("1_qedt4")
+cone_angle = 40.0
+cone_distance = 1000.0
+base_cone_angular_speed = 60.0
+chase_speed_multiplier = 2.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1942104405]
 modulate = Color(1, 0.26666668, 1, 1)
@@ -32,10 +38,25 @@ monitorable = false
 shape = SubResource("CircleShape2D_qedt4")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="vision_cone" unique_id=1042524409]
-polygon = PackedVector2Array(-40, 32, -128, 256, 128, 256, 40, 32)
+polygon = PackedVector2Array(0, 0, -300, 800, 300, 800)
 
 [node name="pathTimer" type="Timer" parent="." unique_id=864310418]
 
 [node name="chasingRaycast" type="RayCast2D" parent="." unique_id=1029449567]
 enabled = false
 target_position = Vector2(0, 0)
+
+[node name="Node2D" type="Node2D" parent="." unique_id=489663388]
+position = Vector2(0, -102)
+
+[node name="investigating_sprite" type="Sprite2D" parent="Node2D" unique_id=121936223]
+visible = false
+position = Vector2(5.9999995, -5.9999995)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_piff0")
+
+[node name="chasing_sprite" type="Sprite2D" parent="Node2D" unique_id=1136036272]
+visible = false
+position = Vector2(5.9999995, -5.9999995)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_803lo")

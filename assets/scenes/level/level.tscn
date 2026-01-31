@@ -29,7 +29,7 @@ mask_range = 400.0
 zoom = Vector2(0.25, 0.25)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="world" unique_id=1625079109]
-position = Vector2(-8, -8)
+position = Vector2(-4679, -2276)
 navigation_polygon = SubResource("NavigationPolygon_c33ao")
 
 [node name="Camera2D" type="Camera2D" parent="world" unique_id=404590047]
@@ -41,12 +41,22 @@ zoom = Vector2(0.1, 0.1)
 script = ExtResource("3_ndvdw")
 
 [node name="Node2D" type="Node2D" parent="world/cop_coordinator" unique_id=1401393580]
-position = Vector2(200, 376)
+position = Vector2(-945, 1047)
+
+[node name="Node2D3" type="Node2D" parent="world/cop_coordinator" unique_id=1697070082]
+position = Vector2(-1153, -76)
+
+[node name="Node2D4" type="Node2D" parent="world/cop_coordinator" unique_id=56398053]
+position = Vector2(1790, 980)
+
+[node name="Node2D5" type="Node2D" parent="world/cop_coordinator" unique_id=775806895]
+position = Vector2(497, -298)
 
 [node name="Node2D2" type="Node2D" parent="world/cop_coordinator" unique_id=1047345605]
-position = Vector2(616, 120)
+position = Vector2(1884, -432)
 
 [node name="cop" parent="world" unique_id=315845497 node_paths=PackedStringArray("cop_coordinator") instance=ExtResource("4_vpecr")]
+position = Vector2(7, 0)
 collision_layer = 0
 cop_coordinator = NodePath("../cop_coordinator")
 
@@ -54,7 +64,7 @@ cop_coordinator = NodePath("../cop_coordinator")
 
 [node name="npcManager" type="Node" parent="." unique_id=1160828432]
 script = ExtResource("4_ndvdw")
-NUM_GROUPS = 8
+NUM_GROUPS = 0
 
 [node name="spawn_area" type="Area2D" parent="npcManager" unique_id=999269458]
 

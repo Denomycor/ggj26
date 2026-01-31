@@ -11,23 +11,24 @@ func prepare() -> void:
 func enter(_previous_state: State, args) -> void:
 	assert(args is Vector2)
 	cop.nav_agent.target_position = args
+	cop.investigating_sprite.visible = true
 
 
 func physics_process(_delta: float) -> void:
 	if(!cop.nav_agent.is_navigation_finished()):
 		# spotted the player
-		if(cop.vision_cone.has_overlapping_bodies()):
+		if(cop.is_player_seen()):
 			state_machine.transition(self, "chasing", LevelContext.player)
 			return
 
 		var next_pos := cop.nav_agent.get_next_path_position()
 		var direction := cop.position.direction_to(next_pos)
-		cop.velocity = direction * cop.BASE_SPEED
+		cop.velocity = direction * cop.BASE_SPEED * cop.chase_speed_multiplier
 		cop.move_and_slide()
+		cop.set_cone_target(cop.nav_agent.target_position)
+		cop.move_cone_towards_target(_delta, cop.base_cone_angular_speed * cop.chase_speed_multiplier)
 	else:
 		state_machine.transition(self, "patrolling")
 
-
 func exit(_next_state: State) -> void:
-	cop.velocity = Vector2.ZERO
-
+	cop.investigating_sprite.visible = false

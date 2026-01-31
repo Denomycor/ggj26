@@ -13,7 +13,6 @@ const SPEED := 200.0
 
 var npc_manager: NpcManager
 
-
 var destination: Vector2 = Vector2.ZERO
 
 @onready var neighbor_area: Area2D = $neighbor_area
