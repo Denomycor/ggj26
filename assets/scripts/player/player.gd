@@ -1,7 +1,8 @@
 class_name Player extends CharacterBody2D
 
 @export var speed: float = 200.0
-@onready var running_sfx: AudioStreamPlayer = $running_sfx
+@onready var running_sfx: AudioStreamPlayer2D = $running_sfx
+@onready var background_talking_sfx: AudioStreamPlayer2D = $background_talking_sfx
 
 #@onready var sprite: Sprite2D = $Sprite2D
 

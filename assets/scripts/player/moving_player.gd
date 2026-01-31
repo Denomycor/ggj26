@@ -30,5 +30,6 @@ func physics_process(_delta: float) -> void:
 
 func exit(_next_state: State) -> void:
 	player.velocity.x = 0
+	
 	player.running_sfx.stop()
 	# player.animation_player.stop()
