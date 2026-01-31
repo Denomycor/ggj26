@@ -60,11 +60,26 @@ position = Vector2(7, 0)
 collision_layer = 0
 cop_coordinator = NodePath("../cop_coordinator")
 
+[node name="cop2" parent="world" unique_id=2141987181 node_paths=PackedStringArray("cop_coordinator") instance=ExtResource("4_vpecr")]
+position = Vector2(1703, -44)
+collision_layer = 0
+cop_coordinator = NodePath("../cop_coordinator")
+
+[node name="cop3" parent="world" unique_id=1720249270 node_paths=PackedStringArray("cop_coordinator") instance=ExtResource("4_vpecr")]
+position = Vector2(-1094, 769)
+collision_layer = 0
+cop_coordinator = NodePath("../cop_coordinator")
+
+[node name="cop4" parent="world" unique_id=175772447 node_paths=PackedStringArray("cop_coordinator") instance=ExtResource("4_vpecr")]
+position = Vector2(855, 944)
+collision_layer = 0
+cop_coordinator = NodePath("../cop_coordinator")
+
 [node name="game_overlay" parent="." unique_id=44092131 instance=ExtResource("3_lrkoh")]
 
 [node name="npcManager" type="Node" parent="." unique_id=1160828432]
 script = ExtResource("4_ndvdw")
-NUM_GROUPS = 0
+NUM_GROUPS = 5
 
 [node name="spawn_area" type="Area2D" parent="npcManager" unique_id=999269458]
 

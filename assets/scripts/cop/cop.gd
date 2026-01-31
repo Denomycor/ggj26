@@ -23,6 +23,7 @@ var target_cone_angle: float = 0.0
 
 func _ready() -> void:
 	_set_vision_cone(cone_angle, cone_distance)
+	_set_up_close_distance(up_close_distance)
 	state_machine.add_state(PatrollingCop.new("patrolling"))
 	state_machine.add_state(InvestigateCop.new("investigate"))
 	state_machine.add_state(ChasingCop.new("chasing"))
@@ -42,6 +43,9 @@ func face_cone_towards(target_pos: Vector2, offset: float = 0.0) -> void:
 func set_cone_target(target_pos: Vector2) -> void:
 	var direction: Vector2 = target_pos - global_position
 	target_cone_angle = direction.angle()
+
+func _set_up_close_distance(distance: float) -> void:
+	$vision_cone/CollisionShape2D.shape.radius = distance
 
 func move_cone_towards_target(delta: float, angular_speed: float) -> void:
 	var current_angle: float = vision_cone.rotation
@@ -74,6 +78,15 @@ func is_player_seen() -> bool:
 func _set_vision_cone(angle: float, distance: float) -> void:
 	var points := PackedVector2Array()
 	points.append(Vector2.ZERO)
-	points.append(Vector2(distance,distance*sin(deg_to_rad(angle/2))))
-	points.append(Vector2(distance,distance*sin(deg_to_rad(-angle/2))))
+	points.append(Vector2(distance*cos(deg_to_rad(angle/2)),distance*sin(deg_to_rad(angle/2))))
+	points.append(Vector2(distance*cos(deg_to_rad(angle/4)),distance*sin(deg_to_rad(angle/4))))
+	points.append(Vector2(distance,0))
+	points.append(Vector2(distance*cos(deg_to_rad(-angle/4)),distance*sin(deg_to_rad(-angle/4))))
+	points.append(Vector2(distance*cos(deg_to_rad(-angle/2)),distance*sin(deg_to_rad(-angle/2))))
 	vision_cone.get_node("CollisionPolygon2D").polygon = points
+	$vision_cone/vision_cone_poly.polygon = points
+	var points_close := PackedVector2Array()
+	#put points in a circle shape for close range with a for loop on the angle
+	for a in range(0, 360, 15):
+		points_close.append(Vector2((up_close_distance)*cos(deg_to_rad(a)), (up_close_distance)*sin(deg_to_rad(a))))
+	$vision_cone/vision_cone_poly_close.polygon = points_close

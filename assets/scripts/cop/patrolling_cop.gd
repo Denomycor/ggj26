@@ -1,13 +1,10 @@
 # Wander through the map patrolling itpatr
 class_name PatrollingCop extends State
 
-
 var cop: Cop
-
 
 func prepare() -> void:
 	cop = owner as Cop
-
 
 func enter(_previous_state: State, _args) -> void:
 	cop.cop_coordinator.register_cop(cop)
