@@ -13,12 +13,11 @@ var target_last_know_pos: Vector2
 func prepare() -> void:
 	cop = owner as Cop
 	path_timer = cop.get_node("pathTimer")
-	chasing_raycast = cop.get_node("chasing_raycast")
+	chasing_raycast = cop.get_node("chasingRaycast")
 	path_timer.timeout.connect(set_target_path)
 
 
 func enter(_previous_state: State, args) -> void:
-	assert(args is Node2D)
 	target = args
 	set_target_path()
 	target_last_know_pos = target.global_position
@@ -55,4 +54,3 @@ func exit(_next_state: State) -> void:
 
 func set_target_path() -> void:
 	cop.nav_agent.target_position = target.global_position
-

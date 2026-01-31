@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://bk8pxm2obykpv"]
 
 [ext_resource type="PackedScene" uid="uid://cq1yfaad8jj5m" path="res://assets/scenes/player/player.tscn" id="1_c33ao"]
+[ext_resource type="Script" uid="uid://dlnow3s8pk5d0" path="res://assets/scripts/level.gd" id="1_v4g74"]
 [ext_resource type="PackedScene" uid="uid://ciqhni7hbvieb" path="res://assets/scenes/npcs/npc.tscn" id="2_h4syp"]
 [ext_resource type="PackedScene" uid="uid://dq5fpqqtr4kn1" path="res://assets/scenes/ui/game_overlay.tscn" id="3_lrkoh"]
+[ext_resource type="Script" uid="uid://oj0kfb0sgqxb" path="res://assets/scripts/cop_coordinator.gd" id="3_ndvdw"]
 [ext_resource type="Script" uid="uid://btqd5y1k53ymj" path="res://assets/scripts/npc/manager/npc_manager.gd" id="4_ndvdw"]
+[ext_resource type="PackedScene" uid="uid://i5nvxlveiso" path="res://assets/scenes/cops/cop.tscn" id="4_vpecr"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_c33ao"]
 vertices = PackedVector2Array(9582.023, 5373.992, 18, 5366, 18, 17.992188, 9597.969, 10)
@@ -11,6 +14,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(8, 8, 8, 5376, 9592, 5384, 9608, 8)])
 
 [node name="level" type="Node" unique_id=830439741]
+script = ExtResource("1_v4g74")
 
 [node name="world" type="Node2D" parent="." unique_id=1485806601]
 
@@ -33,6 +37,18 @@ navigation_polygon = SubResource("NavigationPolygon_c33ao")
 visible = false
 position = Vector2(4800, 2696)
 zoom = Vector2(0.1, 0.1)
+
+[node name="cop_coordinator" type="Node2D" parent="world" unique_id=547148567]
+script = ExtResource("3_ndvdw")
+
+[node name="Node2D" type="Node2D" parent="world/cop_coordinator" unique_id=1401393580]
+position = Vector2(200, 376)
+
+[node name="Node2D2" type="Node2D" parent="world/cop_coordinator" unique_id=1047345605]
+position = Vector2(616, 120)
+
+[node name="cop" parent="world" unique_id=315845497 node_paths=PackedStringArray("cop_coordinator") instance=ExtResource("4_vpecr")]
+cop_coordinator = NodePath("../cop_coordinator")
 
 [node name="game_overlay" parent="." unique_id=44092131 instance=ExtResource("3_lrkoh")]
 
