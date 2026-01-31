@@ -10,7 +10,7 @@ func prepare() -> void:
 # func enter(previous_state: State) -> void:
 	
 
-func physics_process(delta: float) -> void:
+func physics_process(_delta: float) -> void:
 	var x_axis := Input.get_axis("right", "left")
 	var y_axis := Input.get_axis("down", "up")
 
@@ -25,6 +25,6 @@ func physics_process(delta: float) -> void:
 		player.movement_state_machine.transition(self, "idle_normal")
 
 
-func exit(next_state: State) -> void:
+func exit(_next_state: State) -> void:
 	player.velocity.x = 0
 	# player.animation_player.stop()

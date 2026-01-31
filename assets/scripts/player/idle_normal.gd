@@ -8,7 +8,7 @@ var player: Player
 	# player.sprite.sprite.frame = 0
 
 
-func physics_process(delta: float) -> void:
+func physics_process(_delta: float) -> void:
 	var x_axis := Input.get_axis("right", "left")
 	var y_axis := Input.get_axis("down", "up")
 
