@@ -81,4 +81,3 @@ func serialize_read(data: Dictionary) -> void:
 		current_state.serialize_read(data["state_data"])
 	else:
 		starting_state(state_name)
-

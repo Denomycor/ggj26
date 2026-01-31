@@ -10,6 +10,8 @@ var state_machine := StateMachine.new(self)
 
 func _ready() -> void:
 	state_machine.add_state(PatrollingCop.new("patrolling"))
+	state_machine.add_state(InvestigateCop.new("investigate"))
+	state_machine.add_state(ChasingCop.new("chasing"))
 	state_machine.starting_state("patrolling")
 
 

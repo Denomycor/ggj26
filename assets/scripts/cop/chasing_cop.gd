@@ -1,4 +1,4 @@
-class_name PatrollingCop extends State
+class_name ChasingCop extends State
 
 
 var cop: Cop
