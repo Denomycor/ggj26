@@ -1,6 +1,12 @@
 [gd_scene format=3 uid="uid://bk8pxm2obykpv"]
 
 [ext_resource type="PackedScene" uid="uid://cq1yfaad8jj5m" path="res://assets/scenes/player/player.tscn" id="1_c33ao"]
+[ext_resource type="PackedScene" uid="uid://ciqhni7hbvieb" path="res://assets/scenes/npcs/npc.tscn" id="2_h4syp"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_c33ao"]
+vertices = PackedVector2Array(1088.8906, 53.96875, 1083.1094, 585, 68.890625, 585, 63.101563, 51.023438)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(53, 41, 59, 595, 59, 595, 1093, 595, 1099, 44)])
 
 [node name="level" type="Node" unique_id=830439741]
 
@@ -8,3 +14,9 @@
 
 [node name="player" parent="world" unique_id=91995908 instance=ExtResource("1_c33ao")]
 position = Vector2(531, 298)
+
+[node name="npc" parent="world" unique_id=779053705 instance=ExtResource("2_h4syp")]
+position = Vector2(835, 163)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1625079109]
+navigation_polygon = SubResource("NavigationPolygon_c33ao")

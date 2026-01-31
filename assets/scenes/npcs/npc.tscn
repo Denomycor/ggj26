@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ciqhni7hbvieb"]
+
+[ext_resource type="Script" uid="uid://djimr6b07cett" path="res://assets/scripts/npc/npc.gd" id="1_be1e5"]
+[ext_resource type="Texture2D" uid="uid://4y40e1ouxtbf" path="res://icon.svg" id="2_enw5w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_apdos"]
+radius = 59.03389
+
+[node name="npc" type="CharacterBody2D" unique_id=779053705]
+script = ExtResource("1_be1e5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1458235717]
+modulate = Color(0.30397037, 0.3039704, 0.30397037, 1)
+texture = ExtResource("2_enw5w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1649869446]
+shape = SubResource("CircleShape2D_apdos")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1078771623]

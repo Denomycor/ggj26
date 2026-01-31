@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://i5nvxlveiso"]
+
+[ext_resource type="Script" uid="uid://cmu3fh4rjaxeu" path="res://assets/scripts/cop/cop.gd" id="1_qedt4"]
+[ext_resource type="Texture2D" uid="uid://4y40e1ouxtbf" path="res://icon.svg" id="2_piff0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_803lo"]
+radius = 59.3043
+
+[node name="cop" type="CharacterBody2D" unique_id=315845497]
+modulate = Color(1, 0.28627452, 1, 1)
+script = ExtResource("1_qedt4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1942104405]
+texture = ExtResource("2_piff0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1439833039]
+shape = SubResource("CircleShape2D_803lo")
