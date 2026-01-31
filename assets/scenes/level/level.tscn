@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cq1yfaad8jj5m" path="res://assets/scenes/player/player.tscn" id="1_c33ao"]
 [ext_resource type="PackedScene" uid="uid://ciqhni7hbvieb" path="res://assets/scenes/npcs/npc.tscn" id="2_h4syp"]
+[ext_resource type="PackedScene" uid="uid://dq5fpqqtr4kn1" path="res://assets/scenes/ui/game_overlay.tscn" id="3_lrkoh"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_c33ao"]
 vertices = PackedVector2Array(1088.8906, 53.96875, 1083.1094, 585, 68.890625, 585, 63.101563, 51.023438)
@@ -18,5 +19,7 @@ position = Vector2(531, 298)
 [node name="npc" parent="world" unique_id=779053705 instance=ExtResource("2_h4syp")]
 position = Vector2(835, 163)
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1625079109]
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="world" unique_id=1625079109]
 navigation_polygon = SubResource("NavigationPolygon_c33ao")
+
+[node name="game_overlay" parent="." unique_id=44092131 instance=ExtResource("3_lrkoh")]
