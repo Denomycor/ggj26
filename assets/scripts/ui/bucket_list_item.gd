@@ -1,4 +1,4 @@
-extends Control
+class_name BucketListItem extends Control
 
 @export var task_name: String = ""
 
