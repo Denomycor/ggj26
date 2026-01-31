@@ -1,3 +1,4 @@
+## Move the Npc to a given location
 class_name MovingNpc extends State
 
 var npc: Npc

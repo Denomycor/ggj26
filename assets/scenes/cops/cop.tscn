@@ -23,6 +23,7 @@ shape = SubResource("CircleShape2D_803lo")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1870649544]
 
 [node name="vision_cone" type="Area2D" parent="." unique_id=1343025350]
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="vision_cone" unique_id=210678192]
 shape = SubResource("CircleShape2D_qedt4")

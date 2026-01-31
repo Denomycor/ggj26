@@ -2,8 +2,10 @@ class_name Cop extends CharacterBody2D
 
 
 const BASE_SPEED := 200.0
+const GAME_OVER_DIST := 200.0
 
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
+@onready var vision_cone: Area2D = $vision_cone
 
 var state_machine := StateMachine.new(self)
 
