@@ -7,6 +7,9 @@ var player: Player
 func prepare() -> void:
 	player = owner as Player
 
+func enter(_previous_state: State, _args) -> void:
+	player.running_sfx.play()
+
 # func enter(previous_state: State) -> void:
 	
 
@@ -27,4 +30,5 @@ func physics_process(_delta: float) -> void:
 
 func exit(_next_state: State) -> void:
 	player.velocity.x = 0
+	player.running_sfx.stop()
 	# player.animation_player.stop()
