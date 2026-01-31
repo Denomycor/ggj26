@@ -41,4 +41,3 @@ func change_poi_cop(cop: Cop) -> void:
 	var last_poi = cop.current_patrolling_point
 	remove_cop(cop)
 	register_cop(cop, last_poi)
-

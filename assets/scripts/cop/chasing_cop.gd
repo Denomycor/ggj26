@@ -18,7 +18,6 @@ func prepare() -> void:
 
 
 func enter(_previous_state: State, args) -> void:
-	assert(args is Node2D)
 	target = args
 	set_target_path()
 	target_last_know_pos = target.global_position

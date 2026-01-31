@@ -1,4 +1,4 @@
-# Wander through the map patrolling it
+# Wander through the map patrolling itpatr
 class_name PatrollingCop extends State
 
 
