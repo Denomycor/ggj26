@@ -3,9 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://cq1yfaad8jj5m" path="res://assets/scenes/player/player.tscn" id="1_c33ao"]
 [ext_resource type="Script" uid="uid://dlnow3s8pk5d0" path="res://assets/scripts/level.gd" id="1_v4g74"]
 [ext_resource type="PackedScene" uid="uid://dq5fpqqtr4kn1" path="res://assets/scenes/ui/game_overlay.tscn" id="3_lrkoh"]
-[ext_resource type="Script" path="res://assets/scripts/cop_coordinator.gd" id="3_ndvdw"]
+[ext_resource type="Script" uid="uid://oj0kfb0sgqxb" path="res://assets/scripts/cop_coordinator.gd" id="3_ndvdw"]
+[ext_resource type="PackedScene" uid="uid://dr2net8snh7jj" path="res://assets/scenes/utils/EventArea.tscn" id="3_vpecr"]
 [ext_resource type="Script" uid="uid://btqd5y1k53ymj" path="res://assets/scripts/npc/manager/npc_manager.gd" id="4_ndvdw"]
 [ext_resource type="PackedScene" uid="uid://i5nvxlveiso" path="res://assets/scenes/cops/cop.tscn" id="4_vpecr"]
+[ext_resource type="Script" uid="uid://b5twn6ogqi8v6" path="res://assets/scripts/events/event-manager.gd" id="8_ki31b"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_c33ao"]
 vertices = PackedVector2Array(9582.023, 5373.992, 18, 5366, 18, 17.992188, 9597.969, 10)
@@ -25,17 +27,9 @@ position = Vector2(531, 298)
 speed = 900.0
 mask_range = 400.0
 
-[node name="Camera2D" type="Camera2D" parent="world/player" unique_id=797329163]
-zoom = Vector2(0.25, 0.25)
-
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="world" unique_id=1625079109]
 position = Vector2(-4679, -2276)
 navigation_polygon = SubResource("NavigationPolygon_c33ao")
-
-[node name="Camera2D" type="Camera2D" parent="world" unique_id=404590047]
-visible = false
-position = Vector2(4800, 2696)
-zoom = Vector2(0.1, 0.1)
 
 [node name="cop_coordinator" type="Node2D" parent="world" unique_id=547148567]
 script = ExtResource("3_ndvdw")
@@ -85,3 +79,22 @@ NUM_GROUPS = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="npcManager/spawn_area" unique_id=1815497560]
 shape = SubResource("RectangleShape2D_0jpvh")
+
+[node name="event_manager" type="Node" parent="." unique_id=1105024339 node_paths=PackedStringArray("game_overlay")]
+script = ExtResource("8_ki31b")
+game_overlay = NodePath("../game_overlay")
+
+[node name="Event1" parent="event_manager" unique_id=1607882343 instance=ExtResource("3_vpecr")]
+position = Vector2(840, 160)
+
+[node name="Event2" parent="event_manager" unique_id=1697281081 instance=ExtResource("3_vpecr")]
+position = Vector2(840, 160)
+
+[node name="Event3" parent="event_manager" unique_id=1481410170 instance=ExtResource("3_vpecr")]
+position = Vector2(840, 160)
+
+[node name="Event4" parent="event_manager" unique_id=919118175 instance=ExtResource("3_vpecr")]
+position = Vector2(840, 160)
+
+[node name="Event5" parent="event_manager" unique_id=381305606 instance=ExtResource("3_vpecr")]
+position = Vector2(840, 160)

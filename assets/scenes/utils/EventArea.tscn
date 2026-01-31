@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dr2net8snh7jj"]
+
+[ext_resource type="Script" uid="uid://cyqrqsm6c8353" path="res://assets/scripts/events/event.gd" id="1_6ajf7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dneko"]
+radius = 256.0
+
+[node name="EventArea" type="Node2D" unique_id=1607882343]
+script = ExtResource("1_6ajf7")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=284602258]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=741722182]
+shape = SubResource("CircleShape2D_dneko")

@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://ciqhni7hbvieb"]
 
 [ext_resource type="Script" uid="uid://djimr6b07cett" path="res://assets/scripts/npc/npc.gd" id="1_be1e5"]
-[ext_resource type="Texture2D" uid="uid://4y40e1ouxtbf" path="res://icon.svg" id="2_enw5w"]
+[ext_resource type="PackedScene" uid="uid://do0o4dnaa4hxe" path="res://assets/scenes/npcs/sprite_group.tscn" id="2_be1e5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_be1e5"]
-height = 76.0
+radius = 16.0
+height = 58.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_be1e5"]
 
@@ -18,18 +19,16 @@ cohesion_weight = 0.5
 destination_weight = 0.3
 sensitivity = 6.0
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1458235717]
-modulate = Color(0.30397037, 0.3039704, 0.30397037, 1)
-texture = ExtResource("2_enw5w")
+[node name="sprite_group" parent="." unique_id=796532361 instance=ExtResource("2_be1e5")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1649869446]
-position = Vector2(0, 54)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_be1e5")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1078771623]
 
 [node name="neighbor_area" type="Area2D" parent="." unique_id=902220728]
+position = Vector2(0, -83)
 collision_layer = 0
 collision_mask = 3
 
