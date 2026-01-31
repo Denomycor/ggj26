@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dbic3yapawss5" path="res://assets/scripts/player/player.gd" id="1_ratu8"]
 [ext_resource type="AudioStream" uid="uid://d1qpxkj278eer" path="res://assets/sounds/running-6358.mp3" id="3_xo733"]
 [ext_resource type="AudioStream" uid="uid://4a65lbensro3" path="res://assets/sounds/generic-crowd-background-noise-31310.mp3" id="4_wg42c"]
-[ext_resource type="Script" path="res://assets/scenes/player/background_talking.gd" id="5_xvhxs"]
+[ext_resource type="Script" uid="uid://c7jgwule402yb" path="res://assets/scenes/player/background_talking.gd" id="5_xvhxs"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xvhxs"]
 height = 96.0
