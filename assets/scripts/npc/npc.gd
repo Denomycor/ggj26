@@ -6,11 +6,13 @@ const SPEED := 200.0
 @export var neighbor_radius: float = 0
 @export var separation_distance: float = 50.0
 @export var max_speed: float = 250
+@export var cohesion_weight: float = 1
+@export var separation_weight: float = 1
+@export var destination_weight: float = 0.5
+@export var sensitivity: float = 10
 
-var cohesion_weight: float = 1
-var separation_weight: float = 1
-var destination_weight: float = 0.5
-var sensitivity: float = 10
+var npc_manager: NpcManager
+
 
 var destination: Vector2 = Vector2.ZERO
 
@@ -20,11 +22,9 @@ var group : NpcManager.GROUPS
 
 var state_machine := StateMachine.new(self)
 
-
 func _ready() -> void:
 	_set_neighbor_range(neighbor_radius)
 	state_machine.add_state(MovingNpc.new("moving"))
-	state_machine.add_state(IdleNpc.new("idle"))
 	state_machine.starting_state("moving", null)
 
 
@@ -76,3 +76,9 @@ func _get_group_members() -> Array:
 
 func set_destination(new_destination: Vector2) -> void:
 	destination = new_destination
+
+func am_in_destination() -> bool:
+	var destination_area = npc_manager.destinations[group]
+	if destination_area.get_overlapping_bodies().has(self):
+		return true
+	return false

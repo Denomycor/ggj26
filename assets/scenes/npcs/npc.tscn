@@ -13,7 +13,10 @@ collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_be1e5")
 neighbor_radius = 400.0
-separation_distance = 200.0
+separation_distance = 120.0
+cohesion_weight = 0.5
+destination_weight = 0.3
+sensitivity = 6.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1458235717]
 modulate = Color(0.30397037, 0.3039704, 0.30397037, 1)

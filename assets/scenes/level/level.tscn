@@ -54,6 +54,7 @@ cop_coordinator = NodePath("../cop_coordinator")
 
 [node name="npcManager" type="Node" parent="." unique_id=1160828432]
 script = ExtResource("4_ndvdw")
+NUM_GROUPS = 8
 
 [node name="spawn_area" type="Area2D" parent="npcManager" unique_id=999269458]
 

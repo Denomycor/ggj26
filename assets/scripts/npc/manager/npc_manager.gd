@@ -61,7 +61,7 @@ func _physics_process(_delta: float) -> void:
 			if not is_on_timer.has(group) or not is_on_timer[group]:
 				#start timer for new group destination with a tween
 				var tween = create_tween()
-				tween.tween_callback(func(): _set_group_destination(group, _get_random_position_in_rectangle(spawn_area))).set_delay(CHANGE_DESTINATION_TIME + randf_range(-CHANGE_DESTINATION_TIME_VARIANCE, CHANGE_DESTINATION_TIME_VARIANCE))
+				tween.tween_callback(func(): _set_group_destination(group, get_random_position_in_rectangle(spawn_area))).set_delay(CHANGE_DESTINATION_TIME + randf_range(-CHANGE_DESTINATION_TIME_VARIANCE, CHANGE_DESTINATION_TIME_VARIANCE))
 				is_on_timer[group] = true
 		else:
 			is_on_timer[group] = false
@@ -76,7 +76,7 @@ func _set_random_group_destination() -> void:
 	for group_index in NUM_GROUPS+1:
 		if group_index == GROUPS.NONE:
 			continue
-		_set_group_destination(group_index, _get_random_position_in_rectangle(spawn_area))
+		_set_group_destination(group_index, get_random_position_in_rectangle(spawn_area))
 
 func _create_group_destination_areas() -> void:
 	for group_index in NUM_GROUPS+1:
@@ -87,7 +87,7 @@ func _create_group_destination_areas() -> void:
 		var shape: RectangleShape2D = RectangleShape2D.new()
 		shape.size = Vector2($spawn_area/CollisionShape2D.shape.size.x * GROUP_AREA_RELATIVE_SIZE, $spawn_area/CollisionShape2D.shape.size.y * GROUP_AREA_RELATIVE_SIZE)
 		collision_shape.shape = shape
-		destination_area.global_position = _get_random_position_in_rectangle(spawn_area)
+		destination_area.global_position = get_random_position_in_rectangle(spawn_area)
 		destination_area.collision_mask = 2
 		add_child(destination_area)
 		destination_area.add_child(collision_shape)
@@ -102,7 +102,8 @@ func _spawn_npc_groups() -> void:
 		groups[group_index] = []
 		for i in num_npcs:
 			var npc: Npc = _spawn_grouped_npc(group_index)
-			npc.global_position = _get_random_position_in_rectangle(destinations[group_index])
+			npc.global_position = get_random_position_in_rectangle(destinations[group_index])
+			npc.npc_manager = self
 			npc.set_destination(npc.global_position)
 			groups[group_index].append(npc)
 			add_child(npc)
@@ -120,10 +121,10 @@ func _set_group_destination(group: GROUPS, destination: Vector2) -> void:
 	if destinations.has(group):
 		destinations[group].position = destination
 		for npc in groups[group]:
-			npc.set_destination(_get_random_position_in_rectangle(destinations[group]))
+			npc.set_destination(get_random_position_in_rectangle(destinations[group]))
 
 ## Returns a random position within the spawn area
-func _get_random_position_in_rectangle(area: Area2D) -> Vector2:
+func get_random_position_in_rectangle(area: Area2D) -> Vector2:
 	var shape: RectangleShape2D = area.get_child(0).shape as RectangleShape2D
 	return Vector2(
 		randf_range(-shape.size.x * 0.5, shape.size.x * 0.5)+area.global_position.x,
