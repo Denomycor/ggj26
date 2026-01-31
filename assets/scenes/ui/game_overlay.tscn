@@ -1,13 +1,17 @@
 [gd_scene format=3 uid="uid://dq5fpqqtr4kn1"]
 
 [ext_resource type="Script" uid="uid://5nsj4wc8a3s2" path="res://assets/scripts/ui/bucket_list.gd" id="1_5koc0"]
-[ext_resource type="Script" uid="uid://d1g2r165reff3" path="res://assets/scripts/ui/overlay.gd" id="1_56go1"]
 [ext_resource type="PackedScene" uid="uid://dgxa370etbflp" path="res://assets/scenes/ui/bucket_list_items.tscn" id="1_hcvah"]
+[ext_resource type="Script" path="res://assets/scripts/ui/game_overlay.gd" id="1_ntj7t"]
 [ext_resource type="Script" uid="uid://dxo223ng5kq5f" path="res://assets/scripts/ui/mask_bar.gd" id="2_fwtsk"]
 [ext_resource type="PackedScene" uid="uid://dmnu4ko6cxsjt" path="res://assets/scenes/ui/mask_slot.tscn" id="5_ntj7t"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_56go1"]
+resource_local_to_scene = true
+font_size = 60
+
 [node name="game_overlay" type="CanvasLayer" unique_id=44092131]
-script = ExtResource("1_56go1")
+script = ExtResource("1_ntj7t")
 
 [node name="bucket_list" type="VBoxContainer" parent="." unique_id=726457019 node_paths=PackedStringArray("slots")]
 anchors_preset = 1
@@ -38,19 +42,15 @@ layout_mode = 2
 
 [node name="BucketListItems" parent="bucket_list/VBoxContainer" unique_id=1023708356 instance=ExtResource("1_hcvah")]
 layout_mode = 2
-task_name = "Esteves abre a pestana"
 
 [node name="BucketListItems2" parent="bucket_list/VBoxContainer" unique_id=1588544405 instance=ExtResource("1_hcvah")]
 layout_mode = 2
-task_name = "a vida a bater no rick"
 
 [node name="BucketListItems3" parent="bucket_list/VBoxContainer" unique_id=1964868927 instance=ExtResource("1_hcvah")]
 layout_mode = 2
-task_name = "Vera trabalha"
 
 [node name="BucketListItems4" parent="bucket_list/VBoxContainer" unique_id=1540574807 instance=ExtResource("1_hcvah")]
 layout_mode = 2
-task_name = "Assets???"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1781066251 node_paths=PackedStringArray("slots")]
 anchors_preset = 2
@@ -73,5 +73,6 @@ layout_mode = 2
 
 [node name="Label" parent="HBoxContainer/mask_slot2" index="1" unique_id=524444675]
 text = "1"
+label_settings = SubResource("LabelSettings_56go1")
 
 [editable path="HBoxContainer/mask_slot2"]

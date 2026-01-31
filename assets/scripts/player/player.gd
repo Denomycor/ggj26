@@ -26,7 +26,7 @@ func _input(event):
 		if event.keycode >= KEY_0 and event.keycode <= KEY_9:
 			var group_num : int = event.keycode - KEY_0
 			change_mask_group(group_num)
-			LevelContext.overlay.mask_bar.change_slot(group_num)
+			LevelContext.game_overlay.mask_bar.change_slot(group_num)
 
 func _physics_process(delta: float) -> void:
 	movement_state_machine.physics_process(delta)

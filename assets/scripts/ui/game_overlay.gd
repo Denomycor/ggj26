@@ -9,6 +9,7 @@ const ITEM_SCENE: PackedScene = preload("res://assets/scenes/ui/bucket_list_item
 # Internal state
 var _bucket_list_visible: bool = true
 var _bucket_items: Dictionary = {}  # item_id -> {message: String, checked: bool}
+@onready var mask_bar: MaskBar = $HBoxContainer
 
 # UI References (set these in the editor or via code)
 @onready var list_container: Control = $bucket_list
@@ -19,6 +20,7 @@ func _ready() -> void:
 	# Connect signals to internal handlers
 	toggle_bucket_list.connect(_on_toggle_bucket_list)
 	check_bucket_item.connect(_on_check_bucket_item)
+	mask_bar.change_slot(0)
 
 
 # Direct function to add items to the bucket list
