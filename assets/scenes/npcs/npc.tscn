@@ -7,6 +7,8 @@
 radius = 59.03389
 
 [node name="npc" type="CharacterBody2D" unique_id=779053705]
+collision_layer = 2
+collision_mask = 4
 script = ExtResource("1_be1e5")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1458235717]

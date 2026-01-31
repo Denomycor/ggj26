@@ -10,6 +10,8 @@ radius = 59.3043
 radius = 51.0392
 
 [node name="cop" type="CharacterBody2D" unique_id=315845497]
+collision_layer = 2
+collision_mask = 4
 script = ExtResource("1_qedt4")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1942104405]
@@ -23,6 +25,7 @@ shape = SubResource("CircleShape2D_803lo")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1870649544]
 
 [node name="vision_cone" type="Area2D" parent="." unique_id=1343025350]
+collision_layer = 0
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="vision_cone" unique_id=210678192]
@@ -30,3 +33,9 @@ shape = SubResource("CircleShape2D_qedt4")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="vision_cone" unique_id=1042524409]
 polygon = PackedVector2Array(-40, 32, -128, 256, 128, 256, 40, 32)
+
+[node name="path_timer" type="Timer" parent="." unique_id=864310418]
+
+[node name="chasingRaycasy" type="RayCast2D" parent="." unique_id=1029449567]
+enabled = false
+target_position = Vector2(0, 0)

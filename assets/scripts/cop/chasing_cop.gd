@@ -13,7 +13,7 @@ var target_last_know_pos: Vector2
 func prepare() -> void:
 	cop = owner as Cop
 	path_timer = cop.get_node("pathTimer")
-	chasing_raycast = cop.get_node("chasing_raycast")
+	chasing_raycast = cop.get_node("chasingRaycast")
 	path_timer.timeout.connect(set_target_path)
 
 
