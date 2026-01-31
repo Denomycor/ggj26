@@ -12,6 +12,8 @@ func enter(_previous_state: State, args) -> void:
 	assert(args is Vector2)
 	cop.nav_agent.target_position = args
 	cop.investigating_sprite.visible = true
+	cop.get_node("sprite_group").animation_player.play("move", -1, 0.7)
+	cop.get_node("sprite_group").animation_player.seek(randf()*0.4)
 
 
 func physics_process(_delta: float) -> void:
@@ -32,3 +34,5 @@ func physics_process(_delta: float) -> void:
 
 func exit(_next_state: State) -> void:
 	cop.investigating_sprite.visible = false
+	cop.get_node("sprite_group").animation_player.stop()
+

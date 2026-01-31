@@ -6,6 +6,10 @@ var npc: Npc
 func prepare() -> void:
 	npc = owner as Npc
 
+func enter(_previous_state: State, _args) -> void:
+	npc.get_node("sprite_group").animation_player.play("move", -1, 0.7)
+	npc.get_node("sprite_group").animation_player.seek(randf()*0.4)
+
 func physics_process(_delta: float) -> void:
 	var cohesion_force: Vector2 = npc._get_cohesion_force() * npc.cohesion_weight
 	var separation_force: Vector2 = npc._get_separation_force() * npc.separation_weight
@@ -20,3 +24,5 @@ func physics_process(_delta: float) -> void:
 
 func exit(_next_state: State) -> void:
 	npc.velocity = Vector2.ZERO
+	npc.get_node("sprite_group").animation_player.stop()
+
