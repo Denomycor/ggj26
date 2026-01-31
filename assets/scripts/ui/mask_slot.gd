@@ -1,7 +1,7 @@
 class_name MaskSlot extends VBoxContainer
 
-const HIGHLIGHT_COLOR := Color(214.0/255,142.0/255,106.0/255,1)
-const NORMAL_COLOR := Color(245.0/255,214.0/255,179.0/255,1)
+const HIGHLIGHT_COLOR := Color(0,0,0,1)
+const NORMAL_COLOR := Color(1,1,1,1)
 
 @export var border: TextureRect
 @export var highlighted_border: TextureRect

@@ -4,16 +4,7 @@
 [ext_resource type="Script" uid="uid://d1g2r165reff3" path="res://assets/scripts/ui/overlay.gd" id="1_56go1"]
 [ext_resource type="PackedScene" uid="uid://dgxa370etbflp" path="res://assets/scenes/ui/bucket_list_items.tscn" id="1_hcvah"]
 [ext_resource type="Script" uid="uid://dxo223ng5kq5f" path="res://assets/scripts/ui/mask_bar.gd" id="2_fwtsk"]
-[ext_resource type="Script" uid="uid://bj856uttf4pr1" path="res://assets/scripts/ui/mask_slot.gd" id="3_5koc0"]
-[ext_resource type="Texture2D" uid="uid://pyn7sgrvfhqf" path="res://assets/images/checkbox-checked.svg" id="5_ntj7t"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ntj7t"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hcvah"]
-load_path = "res://.godot/imported/checkbox-unchecked.svg-ac3f3ee88819587ab6bd41bc536f7ff5.ctex"
-
-[sub_resource type="LabelSettings" id="LabelSettings_v7sh0"]
-font_size = 70
+[ext_resource type="PackedScene" uid="uid://dmnu4ko6cxsjt" path="res://assets/scenes/ui/mask_slot.tscn" id="5_ntj7t"]
 
 [node name="game_overlay" type="CanvasLayer" unique_id=44092131]
 script = ExtResource("1_56go1")
@@ -72,29 +63,15 @@ offset_bottom = 302.0
 grow_vertical = 0
 scale = Vector2(0.2, 0.2)
 script = ExtResource("2_fwtsk")
-slots = [NodePath("VBoxContainer")]
+slots = [NodePath("mask_slot"), NodePath("mask_slot2")]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1813171341 node_paths=PackedStringArray("border", "highlighted_border", "label")]
+[node name="mask_slot" parent="HBoxContainer" unique_id=150650837 instance=ExtResource("5_ntj7t")]
 layout_mode = 2
-script = ExtResource("3_5koc0")
-border = NodePath("PanelContainer/TextureRect")
-highlighted_border = NodePath("PanelContainer/TextureRect2")
-label = NodePath("Label")
 
-[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/VBoxContainer" unique_id=875659765]
+[node name="mask_slot2" parent="HBoxContainer" unique_id=1668877151 instance=ExtResource("5_ntj7t")]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_ntj7t")
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/PanelContainer" unique_id=509657025]
-layout_mode = 2
-texture = SubResource("CompressedTexture2D_hcvah")
+[node name="Label" parent="HBoxContainer/mask_slot2" index="1" unique_id=524444675]
+text = "1"
 
-[node name="TextureRect2" type="TextureRect" parent="HBoxContainer/VBoxContainer/PanelContainer" unique_id=965005405]
-layout_mode = 2
-texture = ExtResource("5_ntj7t")
-
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=1349567265]
-layout_mode = 2
-text = "0"
-label_settings = SubResource("LabelSettings_v7sh0")
-horizontal_alignment = 1
+[editable path="HBoxContainer/mask_slot2"]
