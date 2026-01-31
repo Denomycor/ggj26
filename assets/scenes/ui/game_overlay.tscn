@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://dq5fpqqtr4kn1"]
 
+[ext_resource type="PackedScene" uid="uid://dgxa370etbflp" path="res://assets/scenes/ui/bucket_list_items.tscn" id="1_hcvah"]
+
 [node name="game_overlay" type="CanvasLayer" unique_id=44092131]
 
 [node name="bucket_list" type="VBoxContainer" parent="." unique_id=726457019]
@@ -14,15 +16,31 @@ grow_horizontal = 0
 
 [node name="Label" type="Label" parent="bucket_list" unique_id=1001910514]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 24
 text = "Bucket list"
 horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="bucket_list" unique_id=665676847]
+self_modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="bucket_list" unique_id=883929334]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="bucket_list/VBoxContainer" unique_id=2012992653]
+[node name="BucketListItems" parent="bucket_list/VBoxContainer" unique_id=1023708356 instance=ExtResource("1_hcvah")]
 layout_mode = 2
-text = "Vintage abre a pestana "
+task_name = "Esteves abre a pestana"
+
+[node name="BucketListItems2" parent="bucket_list/VBoxContainer" unique_id=1588544405 instance=ExtResource("1_hcvah")]
+layout_mode = 2
+task_name = "a vida a bater no rick"
+
+[node name="BucketListItems3" parent="bucket_list/VBoxContainer" unique_id=1964868927 instance=ExtResource("1_hcvah")]
+layout_mode = 2
+task_name = "Vera trabalha"
+
+[node name="BucketListItems4" parent="bucket_list/VBoxContainer" unique_id=1540574807 instance=ExtResource("1_hcvah")]
+layout_mode = 2
+task_name = "Assets???"
