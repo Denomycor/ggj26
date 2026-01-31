@@ -40,3 +40,6 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="mask_area" unique_id=1127710162]
 shape = SubResource("CircleShape2D_xvhxs")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1715267575]
+zoom = Vector2(0.3, 0.3)

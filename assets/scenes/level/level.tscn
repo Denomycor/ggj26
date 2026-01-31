@@ -35,12 +35,12 @@ sources/1 = SubResource("TileSetAtlasSource_6txcm")
 sources/2 = SubResource("TileSetAtlasSource_x1hhm")
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_c33ao"]
-vertices = PackedVector2Array(9582.023, 5373.992, 18, 5366, 18, 17.992188, 9597.969, 10)
+vertices = PackedVector2Array(1560, 1339.0234, -745.96875, 1343.9688, -739.02344, -1647, 1560.9922, -1648.9922)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(8, 8, 8, 5376, 9592, 5384, 9608, 8)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-749, -1657, -756, 1354, 1570, 1349, 1571, -1659)])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0jpvh"]
-size = Vector2(4000, 3000)
+size = Vector2(2329, 3014)
 
 [node name="level" type="Node" unique_id=830439741]
 script = ExtResource("1_v4g74")
@@ -56,26 +56,24 @@ position = Vector2(531, 298)
 speed = 900.0
 mask_range = 400.0
 
-[node name="Camera2D" type="Camera2D" parent="world/player" unique_id=797329163]
-zoom = Vector2(0.25, 0.25)
-
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="world" unique_id=1625079109]
 position = Vector2(-8, -8)
 navigation_polygon = SubResource("NavigationPolygon_c33ao")
-
-[node name="Camera2D" type="Camera2D" parent="world" unique_id=404590047]
-visible = false
-position = Vector2(4800, 2696)
-zoom = Vector2(0.1, 0.1)
 
 [node name="cop_coordinator" type="Node2D" parent="world" unique_id=547148567]
 script = ExtResource("3_ndvdw")
 
 [node name="Node2D" type="Node2D" parent="world/cop_coordinator" unique_id=1401393580]
-position = Vector2(200, 376)
+position = Vector2(-633, -1528)
 
 [node name="Node2D2" type="Node2D" parent="world/cop_coordinator" unique_id=1047345605]
-position = Vector2(616, 120)
+position = Vector2(1464, -1536)
+
+[node name="Node2D3" type="Node2D" parent="world/cop_coordinator" unique_id=1997426315]
+position = Vector2(1464, 1240)
+
+[node name="Node2D4" type="Node2D" parent="world/cop_coordinator" unique_id=1220925914]
+position = Vector2(-656, 1240)
 
 [node name="cop" parent="world" unique_id=315845497 node_paths=PackedStringArray("cop_coordinator") instance=ExtResource("4_vpecr")]
 collision_layer = 0
@@ -90,4 +88,5 @@ NUM_GROUPS = 8
 [node name="spawn_area" type="Area2D" parent="npcManager" unique_id=999269458]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="npcManager/spawn_area" unique_id=1815497560]
+position = Vector2(402.5, -163)
 shape = SubResource("RectangleShape2D_0jpvh")
