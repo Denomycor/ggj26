@@ -106,13 +106,13 @@ func _spawn_npc_groups() -> void:
 			npc.npc_manager = self
 			npc.set_destination(npc.global_position)
 			groups[group_index].append(npc)
-			add_child(npc)
+			get_node("../world").add_child(npc)
 
 ## Spawns a new NPC instance with a modified color
 func _spawn_grouped_npc(group: GROUPS) -> Npc:
 	var npc: Npc = NPC_SCENE.instantiate()
-	var sprite = npc.get_node("Sprite2D")
-	sprite.modulate = group_colors[group]
+	# var sprite = npc.get_node("Sprite2D")
+	# sprite.modulate = group_colors[group]
 	npc.group = group
 	return npc
 
