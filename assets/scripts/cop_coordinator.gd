@@ -15,7 +15,7 @@ func init_poi_dict() -> void:
 
 
 func get_least_patrolled(exclude: Node2D = null) -> Node2D:
-	var res: Node2D = poi_dict.keys()[0]
+	var res: Node2D = poi_dict.keys()[0] if exclude != poi_dict.keys()[0] else poi_dict.keys()[1]
 	for k in poi_dict:
 		if(k != exclude):
 			if poi_dict[res].size() > poi_dict[k].size():

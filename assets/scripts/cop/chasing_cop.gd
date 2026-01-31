@@ -55,4 +55,3 @@ func exit(_next_state: State) -> void:
 
 func set_target_path() -> void:
 	cop.nav_agent.target_position = target.global_position
-

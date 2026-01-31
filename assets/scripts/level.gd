@@ -5,10 +5,10 @@ var suspicion := 0.0
 
 
 func _ready() -> void:
-	populate_level_context()
+	init_level_context()
 
 
-func populate_level_context() -> void:
+func init_level_context() -> void:
 	LevelContext.level = self
 	LevelContext.player = $world/player
 	LevelContext.cop_coordinator = $world/cop_coordinator
