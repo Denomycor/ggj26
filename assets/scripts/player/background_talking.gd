@@ -33,19 +33,19 @@ func outside_hearing_range(crowd: Array, pos_player: Vector2) -> void:
 		var distance := pos_player.distance_to(p)
 		if(distance > hearing_range):
 			count += 1
-	print(count)
+	#print(count)
 	if(count == total):
 		audio.stop()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	var crowd = get_tree().get_nodes_in_group("Guards")
-	var player2d := player as Node2D
-	if player2d == null:
-		push_error("player is not a Node2D")
-		return
+#func _process(delta: float) -> void:
+	#var crowd = get_tree().get_nodes_in_group("Guards")
+	#var player2d := player as Node2D
+	#if player2d == null:
+	#	push_error("player is not a Node2D")
+	#	return
 
-	var pos_player: Vector2 = player2d.global_position
-	inside_hearing_range(crowd, pos_player)
-	outside_hearing_range(crowd, pos_player)
+	#var pos_player: Vector2 = player2d.global_position
+	#inside_hearing_range(crowd, pos_player)
+	#outside_hearing_range(crowd, pos_player)
