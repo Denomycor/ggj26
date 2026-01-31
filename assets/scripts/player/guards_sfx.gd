@@ -1,9 +1,11 @@
 extends AudioStreamPlayer2D
 
 #var player: Player
+var all_the_people
+
 @export var player: Player
 @export var audio : AudioStreamPlayer2D
-@export var hearing_range = 600
+@export var hearing_range = 200
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -40,7 +42,7 @@ func outside_hearing_range(crowd: Array, pos_player: Vector2) -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var crowd = get_tree().get_nodes_in_group("Guards")
+	var crowd = get_tree().get_nodes_in_group("NPCs")
 	var player2d := player as Node2D
 	if player2d == null:
 		push_error("player is not a Node2D")
