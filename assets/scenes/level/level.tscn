@@ -17,14 +17,13 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(8, 8, 8, 5376, 9592, 53
 [node name="player" parent="world" unique_id=91995908 instance=ExtResource("1_c33ao")]
 position = Vector2(531, 298)
 speed = 900.0
+mask_range = 400.0
 
 [node name="Camera2D" type="Camera2D" parent="world/player" unique_id=797329163]
 zoom = Vector2(0.25, 0.25)
 
 [node name="npc" parent="world" unique_id=779053705 instance=ExtResource("2_h4syp")]
-position = Vector2(835, 163)
-collision_layer = 0
-collision_mask = 0
+position = Vector2(1652, 413)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="world" unique_id=1625079109]
 position = Vector2(-8, -8)

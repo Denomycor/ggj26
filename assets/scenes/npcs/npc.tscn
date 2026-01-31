@@ -7,6 +7,7 @@
 radius = 59.03389
 
 [node name="npc" type="CharacterBody2D" unique_id=779053705]
+collision_layer = 3
 script = ExtResource("1_be1e5")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1458235717]
@@ -15,6 +16,5 @@ texture = ExtResource("2_enw5w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1649869446]
 shape = SubResource("CircleShape2D_apdos")
-disabled = true
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1078771623]

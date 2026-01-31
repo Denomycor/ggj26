@@ -1,4 +1,4 @@
-extends Node
+class_name NpcManager extends Node
 
 const NUM_GROUPS: int = 12
 const GROUP_SIZE_MIN: int = 5
@@ -11,7 +11,26 @@ const UPDATE_INTERVAL: float = 1.0
 
 const NPC_SCENE: PackedScene = preload("res://assets/scenes/npcs/npc.tscn")
 
-var group_colors: Array[Color] = [
+enum GROUPS {
+	NONE,
+	RED,
+	GREEN,
+	BLUE,
+	YELLOW,
+	PURPLE,
+	ORANGE,
+	BROWN,
+	CYAN,
+	VIOLET,
+	INDIGO,
+	LIME,
+	MAROON,
+	OLIVE,
+	PINK
+}
+
+const group_colors: Array[Color] = [
+	Color.WHITE,
 	Color.RED,
 	Color.GREEN,
 	Color.BLUE,
@@ -19,7 +38,6 @@ var group_colors: Array[Color] = [
 	Color.PURPLE,
 	Color.ORANGE,
 	Color.BROWN,
-	Color.PINK,
 	Color.CYAN,
 	Color.VIOLET,
 	Color.INDIGO,
@@ -30,10 +48,11 @@ var group_colors: Array[Color] = [
 ]
 
 ## Spawns a new NPC instance with a modified color
-func _spawn_colored_npc(color: Color) -> Npc:
+func _spawn_grouped_npc(group: GROUPS) -> Npc:
 	var npc: Npc = NPC_SCENE.instantiate()
 	var sprite = npc.get_node("Sprite2D")
-	sprite.modulate = color
+	sprite.modulate = group_colors[group]
+	npc.group = group
 	return npc
 
 
@@ -51,14 +70,15 @@ func _process(_delta: float) -> void:
 
 ## Spawns all NPC groups in random positions within the spawn area
 func _spawn_npc_groups() -> void:
-	for group_index in range(NUM_GROUPS):
+	for group_index in GROUPS.size():
+		if group_index == GROUPS.NONE:
+			continue
 		var group: Array[Npc] = []
 		var group_size: int = randi_range(GROUP_SIZE_MIN, GROUP_SIZE_MAX)
 		var group_center: Vector2 = _get_random_position_in_area()
-		var group_color: Color = group_colors[group_index]
 
 		for _i in range(group_size):
-			var npc: Npc = _spawn_colored_npc(group_color)	
+			var npc: Npc = _spawn_grouped_npc(group_index)
 			# Spawn NPCs near the group center with some offset
 			var spawn_offset := Vector2(
 				randf_range(-GROUP_SPAWN_RADIUS, GROUP_SPAWN_RADIUS),

@@ -1,10 +1,9 @@
 class_name Npc extends CharacterBody2D
 
-
 const SPEED := 200.0
 
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
-
+var group : NpcManager.GROUPS
 
 var state_machine := StateMachine.new(self)
 
