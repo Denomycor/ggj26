@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://djimr6b07cett" path="res://assets/scripts/npc/npc.gd" id="1_be1e5"]
 [ext_resource type="Texture2D" uid="uid://4y40e1ouxtbf" path="res://icon.svg" id="2_enw5w"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_apdos"]
-radius = 59.03389
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_be1e5"]
+height = 76.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_be1e5"]
 
@@ -12,7 +12,7 @@ radius = 59.03389
 collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_be1e5")
-neighbor_radius = 700.0
+neighbor_radius = 400.0
 separation_distance = 200.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1458235717]
@@ -20,7 +20,9 @@ modulate = Color(0.30397037, 0.3039704, 0.30397037, 1)
 texture = ExtResource("2_enw5w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1649869446]
-shape = SubResource("CircleShape2D_apdos")
+position = Vector2(0, 54)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_be1e5")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1078771623]
 

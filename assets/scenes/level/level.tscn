@@ -12,6 +12,9 @@ vertices = PackedVector2Array(9582.023, 5373.992, 18, 5366, 18, 17.992188, 9597.
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(8, 8, 8, 5376, 9592, 5384, 9608, 8)])
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0jpvh"]
+size = Vector2(4000, 3000)
+
 [node name="level" type="Node" unique_id=830439741]
 script = ExtResource("1_v4g74")
 
@@ -51,3 +54,8 @@ cop_coordinator = NodePath("../cop_coordinator")
 
 [node name="npcManager" type="Node" parent="." unique_id=1160828432]
 script = ExtResource("4_ndvdw")
+
+[node name="spawn_area" type="Area2D" parent="npcManager" unique_id=999269458]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="npcManager/spawn_area" unique_id=1815497560]
+shape = SubResource("RectangleShape2D_0jpvh")

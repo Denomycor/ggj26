@@ -5,11 +5,11 @@ const SPEED := 200.0
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 @export var neighbor_radius: float = 0
 @export var separation_distance: float = 50.0
-@export var max_speed: float = 400
+@export var max_speed: float = 250
 
 var cohesion_weight: float = 1
-var separation_weight: float = 1.5
-var destination_weight: float = 0.1
+var separation_weight: float = 1
+var destination_weight: float = 0.5
 var sensitivity: float = 10
 
 var destination: Vector2 = Vector2.ZERO
@@ -73,3 +73,6 @@ func _get_group_members() -> Array:
 			if body.group == group:
 				group_members.append(body)
 	return group_members
+
+func set_destination(new_destination: Vector2) -> void:
+	destination = new_destination
