@@ -5,7 +5,6 @@ class_name ChasingCop extends State
 var cop: Cop
 var target: Node2D
 var path_timer: Timer
-var chasing_raycast: RayCast2D
 
 var target_last_know_pos: Vector2
 
@@ -13,7 +12,6 @@ var target_last_know_pos: Vector2
 func prepare() -> void:
 	cop = owner as Cop
 	path_timer = cop.get_node("pathTimer")
-	chasing_raycast = cop.get_node("chasingRaycast")
 	path_timer.timeout.connect(set_target_path)
 
 
@@ -22,8 +20,7 @@ func enter(_previous_state: State, args) -> void:
 	set_target_path()
 	target_last_know_pos = target.global_position
 	path_timer.start()
-	chasing_raycast.enabled = true
-
+	cop.chasing_sprite.visible = true
 
 func physics_process(_delta: float) -> void:
 	if(cop.global_position.distance_to(target.global_position) < cop.GAME_OVER_DIST && target is Player):
@@ -31,11 +28,13 @@ func physics_process(_delta: float) -> void:
 		pass
 
 	# I see the enemy chase its position
-	if(chasing_raycast.is_colliding()):
+	if(cop.is_player_seen()):
 		var next_pos := cop.nav_agent.get_next_path_position()
 		var direction := cop.position.direction_to(next_pos)
-		cop.velocity = direction * cop.BASE_SPEED
+		cop.velocity = direction * cop.BASE_SPEED * cop.chase_speed_multiplier
 		cop.move_and_slide()
+		cop.set_cone_target(target.global_position)
+		cop.move_cone_towards_target(_delta, cop.base_cone_angular_speed * cop.chase_speed_multiplier)
 		target_last_know_pos = target.global_position
 
 	# I don't see the enemy investigate the last know pos
@@ -43,13 +42,10 @@ func physics_process(_delta: float) -> void:
 		state_machine.transition(self, "investigate", target_last_know_pos)
 		return
 
-	chasing_raycast.target_position = target.global_position - cop.global_position
-
 
 func exit(_next_state: State) -> void:
 	path_timer.stop()
-	cop.velocity = Vector2.ZERO
-	chasing_raycast.enabled = false
+	cop.chasing_sprite.visible = false
 
 
 func set_target_path() -> void:
