@@ -1,12 +1,11 @@
 [gd_scene format=3 uid="uid://dq5fpqqtr4kn1"]
 
-[ext_resource type="Script" uid="uid://5nsj4wc8a3s2" path="res://assets/scripts/ui/bucket_list.gd" id="1_5koc0"]
-[ext_resource type="PackedScene" uid="uid://dgxa370etbflp" path="res://assets/scenes/ui/bucket_list_items.tscn" id="1_hcvah"]
-[ext_resource type="Script" path="res://assets/scripts/ui/game_overlay.gd" id="1_ntj7t"]
-[ext_resource type="Script" uid="uid://dxo223ng5kq5f" path="res://assets/scripts/ui/mask_bar.gd" id="2_fwtsk"]
+[ext_resource type="Script" path="res://assets/scripts/ui/bucket_list.gd" id="1_5koc0"]
+[ext_resource type="Script" uid="uid://b2w0hsspcp7x5" path="res://assets/scripts/ui/game_overlay.gd" id="1_ntj7t"]
+[ext_resource type="Script" path="res://assets/scripts/ui/mask_bar.gd" id="2_fwtsk"]
 [ext_resource type="PackedScene" uid="uid://dmnu4ko6cxsjt" path="res://assets/scenes/ui/mask_slot.tscn" id="5_ntj7t"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_56go1"]
+[sub_resource type="LabelSettings" id="LabelSettings_5koc0"]
 resource_local_to_scene = true
 font_size = 60
 
@@ -23,7 +22,7 @@ offset_right = -24.0
 offset_bottom = 47.0
 grow_horizontal = 0
 script = ExtResource("1_5koc0")
-slots = [NodePath("VBoxContainer/BucketListItems"), NodePath("VBoxContainer/BucketListItems2"), NodePath("VBoxContainer/BucketListItems3"), NodePath("VBoxContainer/BucketListItems4")]
+slots = [NodePath(""), NodePath(""), NodePath(""), NodePath("")]
 
 [node name="Label" type="Label" parent="bucket_list" unique_id=1001910514]
 layout_mode = 2
@@ -38,18 +37,6 @@ self_modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="bucket_list" unique_id=883929334]
-layout_mode = 2
-
-[node name="BucketListItems" parent="bucket_list/VBoxContainer" unique_id=1023708356 instance=ExtResource("1_hcvah")]
-layout_mode = 2
-
-[node name="BucketListItems2" parent="bucket_list/VBoxContainer" unique_id=1588544405 instance=ExtResource("1_hcvah")]
-layout_mode = 2
-
-[node name="BucketListItems3" parent="bucket_list/VBoxContainer" unique_id=1964868927 instance=ExtResource("1_hcvah")]
-layout_mode = 2
-
-[node name="BucketListItems4" parent="bucket_list/VBoxContainer" unique_id=1540574807 instance=ExtResource("1_hcvah")]
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1781066251 node_paths=PackedStringArray("slots")]
@@ -73,6 +60,6 @@ layout_mode = 2
 
 [node name="Label" parent="HBoxContainer/mask_slot2" index="1" unique_id=524444675]
 text = "1"
-label_settings = SubResource("LabelSettings_56go1")
+label_settings = SubResource("LabelSettings_5koc0")
 
 [editable path="HBoxContainer/mask_slot2"]

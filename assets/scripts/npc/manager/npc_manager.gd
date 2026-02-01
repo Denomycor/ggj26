@@ -123,4 +123,3 @@ func get_random_position_in_rectangle(area: Area2D) -> Vector2:
 
 func _get_random_group() -> GROUPS:
 	return randi_range(1, NUM_GROUPS) as GROUPS
-
