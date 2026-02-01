@@ -367,16 +367,16 @@ script = ExtResource("8_ki31b")
 game_overlay = NodePath("../game_overlay")
 
 [node name="Event1" parent="event_manager" unique_id=1607882343 instance=ExtResource("3_vpecr")]
-position = Vector2(840, 160)
+position = Vector2(-904, -456)
 
 [node name="Event2" parent="event_manager" unique_id=1697281081 instance=ExtResource("3_vpecr")]
-position = Vector2(840, 160)
+position = Vector2(-920, -1216)
 
 [node name="Event3" parent="event_manager" unique_id=1481410170 instance=ExtResource("3_vpecr")]
-position = Vector2(840, 160)
+position = Vector2(1672, -1904)
 
 [node name="Event4" parent="event_manager" unique_id=919118175 instance=ExtResource("3_vpecr")]
-position = Vector2(840, 160)
+position = Vector2(640, -2528)
 
 [node name="Event5" parent="event_manager" unique_id=381305606 instance=ExtResource("3_vpecr")]
-position = Vector2(840, 160)
+position = Vector2(1320, -1256)
