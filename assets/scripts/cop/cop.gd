@@ -17,6 +17,8 @@ var current_patrolling_point: Node2D = null
 @onready var vision_cone: Area2D = $vision_cone
 @onready var investigating_sprite: Sprite2D = $Node2D/investigating_sprite
 @onready var chasing_sprite: Sprite2D = $Node2D/chasing_sprite
+@onready var chasing_sfx: AudioStreamPlayer2D = $chasing_sfx
+@onready var investigation_sfx: AudioStreamPlayer2D = $investigation_sfx
 
 var state_machine := StateMachine.new(self)
 var target_cone_angle: float = 0.0

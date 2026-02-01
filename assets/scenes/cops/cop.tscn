@@ -17,6 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://di0l4ocirxaxa" path="res://assets/images/cop/back_policeman_head.png" id="10_2d6x8"]
 [ext_resource type="Shader" uid="uid://7xxgiml1cj0b" path="res://assets/shader/color.gdshader" id="13_0hvg4"]
 [ext_resource type="Texture2D" uid="uid://bojud8p7rr0ik" path="res://assets/images/white_circle.png" id="14_yn2ih"]
+[ext_resource type="AudioStream" uid="uid://cb7dqwx08qp08" path="res://assets/sounds/danger-sound.wav" id="18_yfda7"]
+[ext_resource type="AudioStream" uid="uid://b8m0yv3j1ww56" path="res://assets/sounds/hm.wav" id="19_2d6x8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_803lo"]
 radius = 59.3043
@@ -120,5 +122,11 @@ material = SubResource("ShaderMaterial_c3ytt")
 position = Vector2(1.0000005, 6)
 scale = Vector2(0.85999995, 0.5)
 texture = ExtResource("14_yn2ih")
+
+[node name="chasing_sfx" type="AudioStreamPlayer2D" parent="." unique_id=706377283]
+stream = ExtResource("18_yfda7")
+
+[node name="investigation_sfx" type="AudioStreamPlayer2D" parent="." unique_id=162724546]
+stream = ExtResource("19_2d6x8")
 
 [editable path="sprite_group"]
