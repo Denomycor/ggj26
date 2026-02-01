@@ -2,12 +2,18 @@
 
 [ext_resource type="Script" uid="uid://djimr6b07cett" path="res://assets/scripts/npc/npc.gd" id="1_be1e5"]
 [ext_resource type="PackedScene" uid="uid://do0o4dnaa4hxe" path="res://assets/scenes/npcs/sprite_group.tscn" id="2_be1e5"]
+[ext_resource type="Shader" uid="uid://7xxgiml1cj0b" path="res://assets/shader/color.gdshader" id="3_apdos"]
+[ext_resource type="Texture2D" uid="uid://bojud8p7rr0ik" path="res://assets/images/white_circle.png" id="4_q2xni"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_be1e5"]
 radius = 16.0
 height = 58.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_be1e5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vkcw8"]
+shader = ExtResource("3_apdos")
+shader_parameter/color = Color(0, 0, 0, 0.4745098)
 
 [node name="npc" type="CharacterBody2D" unique_id=779053705]
 collision_layer = 2
@@ -20,6 +26,7 @@ destination_weight = 0.3
 sensitivity = 6.0
 
 [node name="sprite_group" parent="." unique_id=796532361 instance=ExtResource("2_be1e5")]
+z_index = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1649869446]
 rotation = 1.5707964
@@ -34,3 +41,9 @@ collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="neighbor_area" unique_id=238239933]
 shape = SubResource("CircleShape2D_be1e5")
+
+[node name="shadow" type="Sprite2D" parent="." unique_id=1297394689]
+material = SubResource("ShaderMaterial_vkcw8")
+position = Vector2(-0.4999998, 3)
+scale = Vector2(0.75, 0.54)
+texture = ExtResource("4_q2xni")

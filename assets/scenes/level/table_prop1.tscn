@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://7qwc3r1au350"]
+
+[ext_resource type="Texture2D" uid="uid://cl0ys2ke746j" path="res://assets/images/props/table_2.png" id="1_mu8b0"]
+[ext_resource type="Shader" uid="uid://7xxgiml1cj0b" path="res://assets/shader/color.gdshader" id="2_xnjhm"]
+[ext_resource type="Texture2D" uid="uid://bojud8p7rr0ik" path="res://assets/images/white_circle.png" id="3_nssaf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pbb0m"]
+shader = ExtResource("2_xnjhm")
+shader_parameter/color = Color(0, 0, 0, 0.4745098)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mu8b0"]
+size = Vector2(114, 56)
+
+[node name="table_prop1" type="StaticBody2D" unique_id=128881069 groups=["props"]]
+collision_layer = 4
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2096880990]
+z_index = 1
+texture = ExtResource("1_mu8b0")
+
+[node name="shadow" type="Sprite2D" parent="." unique_id=1180835218]
+material = SubResource("ShaderMaterial_pbb0m")
+position = Vector2(3.8146973e-06, 44)
+scale = Vector2(1.32, 0.5)
+texture = ExtResource("3_nssaf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=306852090]
+visible = false
+position = Vector2(0, 37)
+shape = SubResource("RectangleShape2D_mu8b0")

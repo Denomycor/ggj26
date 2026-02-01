@@ -9,8 +9,8 @@ func prepare() -> void:
 func enter(_previous_state: State, _args) -> void:
 	cop.cop_coordinator.register_cop(cop)
 	cop.nav_agent.target_position = cop.current_patrolling_point.global_position
-	# cop.get_node("sprite_group").animation_player.play("move", -1, 0.7)
-	# cop.get_node("sprite_group").animation_player.seek(randf()*0.4)
+	cop.get_node("sprite_group").animation_player.play("move", -1, 0.7)
+	cop.get_node("sprite_group").animation_player.seek(randf()*0.4)
 
 
 func physics_process(_delta: float) -> void:
@@ -32,7 +32,7 @@ func physics_process(_delta: float) -> void:
 
 
 func exit(_next_state: State) -> void:
-	# cop.get_node("sprite_group").animation_player.stop()
+	cop.get_node("sprite_group").animation_player.stop()
 	cop.velocity = Vector2.ZERO
 	cop.cop_coordinator.remove_cop(cop)
 

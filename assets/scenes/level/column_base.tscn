@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bpphsdwfkmljx"]
+
+[ext_resource type="Texture2D" uid="uid://c6cwwl3mpgfum" path="res://assets/images/props/column_base.png" id="1_aw0j6"]
+[ext_resource type="Shader" uid="uid://7xxgiml1cj0b" path="res://assets/shader/color.gdshader" id="2_e2ws8"]
+[ext_resource type="Texture2D" uid="uid://bojud8p7rr0ik" path="res://assets/images/white_circle.png" id="3_ntt5s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q4gav"]
+size = Vector2(73, 35)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6nxen"]
+shader = ExtResource("2_e2ws8")
+shader_parameter/color = Color(0, 0, 0, 0.4745098)
+
+[node name="column_base" type="StaticBody2D" unique_id=128881069]
+collision_layer = 4
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2096880990]
+z_index = 1
+texture = ExtResource("1_aw0j6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=306852090]
+position = Vector2(-0.5, 20.5)
+shape = SubResource("RectangleShape2D_q4gav")
+
+[node name="shadow" type="Sprite2D" parent="." unique_id=421571953 groups=["props"]]
+material = SubResource("ShaderMaterial_6nxen")
+position = Vector2(2.3841858e-07, 20.75)
+scale = Vector2(1.0500001, 0.575)
+texture = ExtResource("3_ntt5s")
