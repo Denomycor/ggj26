@@ -22,7 +22,8 @@ script = ExtResource("1_be1e5")
 neighbor_radius = 400.0
 separation_distance = 120.0
 cohesion_weight = 0.5
-destination_weight = 0.3
+separation_weight = 1.5
+destination_weight = 2.0
 sensitivity = 6.0
 
 [node name="sprite_group" parent="." unique_id=796532361 instance=ExtResource("2_be1e5")]

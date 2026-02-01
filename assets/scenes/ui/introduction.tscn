@@ -42,7 +42,9 @@ You have always wanted to belong in an event like this and have made a bucket li
 Try and check every item on it while blending in to the crowd.
 
 Different masked groups are at this event.
+
 You can switch your mask with the buttons 1-4 and look like you belong.
-Move around with WASD."
+Move around with WASD or arrow keys.
+Toggle your list with L"
 label_settings = SubResource("LabelSettings_ibnd7")
 horizontal_alignment = 1

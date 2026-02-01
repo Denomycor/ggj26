@@ -8,6 +8,7 @@ const SPEED := 200.0
 @export var max_speed: float = 250
 @export var cohesion_weight: float = 1
 @export var separation_weight: float = 1
+@export var diff_group_extra_weight: float = 0.5
 @export var destination_weight: float = 0.5
 @export var sensitivity: float = 10
 
@@ -46,13 +47,19 @@ func _get_cohesion_force() -> Vector2:
 
 func _get_separation_force() -> Vector2:
 	var force: Vector2 = Vector2.ZERO
+	var force_diff: Vector2 = Vector2.ZERO
+	var diff_counter: int = 0
 	var neighbors: Array = _get_neighbors()
 	for neighbor in neighbors:
 		if neighbor.global_position.distance_to(global_position) < separation_distance:
 			var diff: Vector2 = global_position - neighbor.global_position
+			if neighbor.group != group:
+				force_diff += diff.normalized() / diff.length()
+				diff_counter += 1
 			force += diff.normalized() / diff.length()
+	force_diff /= max(1, diff_counter)
 	force /= max(1, neighbors.size())
-	return force.normalized()
+	return (force).normalized() + (force_diff * diff_group_extra_weight)
 
 func _get_destination_force() -> Vector2:
 	var force: Vector2 = destination - global_position
