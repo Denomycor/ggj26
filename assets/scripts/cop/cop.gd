@@ -1,7 +1,7 @@
 class_name Cop extends CharacterBody2D
 
 const BASE_SPEED := 200.0
-const GAME_OVER_DIST := 200.0
+const GAME_OVER_DIST := 100.0
 
 @export var cone_angle: float = 60.0
 @export var cone_distance: float = 300.0

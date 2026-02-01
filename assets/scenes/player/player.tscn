@@ -32,7 +32,7 @@ stream = ExtResource("3_xo733")
 
 [node name="background_talking_sfx" type="AudioStreamPlayer2D" parent="." unique_id=1908508387]
 stream = ExtResource("4_wg42c")
-volume_db = -8.748
+volume_db = 0.707
 autoplay = true
 script = ExtResource("5_xvhxs")
 

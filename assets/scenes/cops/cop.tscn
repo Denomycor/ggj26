@@ -2,10 +2,13 @@
 
 [ext_resource type="Script" uid="uid://cmu3fh4rjaxeu" path="res://assets/scripts/cop/cop.gd" id="1_qedt4"]
 [ext_resource type="PackedScene" uid="uid://do0o4dnaa4hxe" path="res://assets/scenes/npcs/sprite_group.tscn" id="2_d35w0"]
+[ext_resource type="Script" uid="uid://cfu5f1ivnighv" path="res://assets/scripts/cop/notifier.gd" id="2_qku8t"]
 [ext_resource type="Texture2D" uid="uid://yexviidhb5l" path="res://assets/images/cop/front_policeman_arms.png" id="3_as7eb"]
+[ext_resource type="Texture2D" uid="uid://dulkkgdsch6qj" path="res://assets/images/question_mark.png" id="3_ophsm"]
 [ext_resource type="Texture2D" uid="uid://c315i35t1oa0e" path="res://assets/images/checkbox-unchecked.svg" id="3_piff0"]
 [ext_resource type="Texture2D" uid="uid://dcqq6ts3yu558" path="res://assets/images/cop/front_policeman_legs.png" id="4_0hvg4"]
 [ext_resource type="Texture2D" uid="uid://pyn7sgrvfhqf" path="res://assets/images/checkbox-checked.svg" id="4_803lo"]
+[ext_resource type="Texture2D" uid="uid://navsduyw5x7j" path="res://assets/images/exclamation_mark.png" id="4_yfda7"]
 [ext_resource type="Texture2D" uid="uid://c7xdrq7r4r8qj" path="res://assets/images/cop/front_policeman_chest.png" id="5_yn2ih"]
 [ext_resource type="Texture2D" uid="uid://cbgvr8qu030b7" path="res://assets/images/cop/front_policeman_head.png" id="6_c3ytt"]
 [ext_resource type="Texture2D" uid="uid://bfhf5cveq36yr" path="res://assets/images/cop/back_policeman_arms.png" id="7_qku8t"]
@@ -34,6 +37,13 @@ cone_distance = 1000.0
 up_close_distance = 300.0
 base_cone_angular_speed = 60.0
 chase_speed_multiplier = 2.0
+
+[node name="notifier" type="Sprite2D" parent="." unique_id=1078224303]
+position = Vector2(0, -256)
+offset = Vector2(0, -30)
+script = ExtResource("2_qku8t")
+question_mark = ExtResource("3_ophsm")
+exclamation_mark = ExtResource("4_yfda7")
 
 [node name="sprite_group" parent="." unique_id=796532361 instance=ExtResource("2_d35w0")]
 z_index = 1

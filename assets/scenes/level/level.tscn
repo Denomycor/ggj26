@@ -76,7 +76,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32
 outlines = Array[PackedVector2Array]([PackedVector2Array(3018, -301, 2997, 3859, 7255, 3853, 7236, -311)])
 source_geometry_mode = 1
 source_geometry_group_name = &"props"
-agent_radius = 20.0
+agent_radius = 50.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0jpvh"]
 size = Vector2(3821, 3756)
@@ -332,8 +332,23 @@ position = Vector2(497, -298)
 [node name="Node2D2" type="Node2D" parent="world/cop_coordinator" unique_id=1047345605]
 position = Vector2(1884, -432)
 
+[node name="Node2D6" type="Node2D" parent="world/cop_coordinator" unique_id=2040872266]
+position = Vector2(1997, -2270)
+
+[node name="Node2D7" type="Node2D" parent="world/cop_coordinator" unique_id=1911562176]
+position = Vector2(-1314, -2028)
+
+[node name="Node2D8" type="Node2D" parent="world/cop_coordinator" unique_id=343256395]
+position = Vector2(-92, -1256)
+
+[node name="Node2D9" type="Node2D" parent="world/cop_coordinator" unique_id=659534282]
+position = Vector2(853, -1776)
+
+[node name="Node2D10" type="Node2D" parent="world/cop_coordinator" unique_id=1191847674]
+position = Vector2(1780, -1221)
+
 [node name="cop" parent="world" unique_id=315845497 node_paths=PackedStringArray("cop_coordinator") instance=ExtResource("4_vpecr")]
-position = Vector2(7, 0)
+position = Vector2(1, -65)
 collision_layer = 0
 cop_coordinator = NodePath("../cop_coordinator")
 
@@ -349,6 +364,16 @@ cop_coordinator = NodePath("../cop_coordinator")
 
 [node name="cop4" parent="world" unique_id=175772447 node_paths=PackedStringArray("cop_coordinator") instance=ExtResource("4_vpecr")]
 position = Vector2(855, 944)
+collision_layer = 0
+cop_coordinator = NodePath("../cop_coordinator")
+
+[node name="cop5" parent="world" unique_id=1045868510 node_paths=PackedStringArray("cop_coordinator") instance=ExtResource("4_vpecr")]
+position = Vector2(-678, -2034)
+collision_layer = 0
+cop_coordinator = NodePath("../cop_coordinator")
+
+[node name="cop6" parent="world" unique_id=1425278519 node_paths=PackedStringArray("cop_coordinator") instance=ExtResource("4_vpecr")]
+position = Vector2(665, -1151)
 collision_layer = 0
 cop_coordinator = NodePath("../cop_coordinator")
 

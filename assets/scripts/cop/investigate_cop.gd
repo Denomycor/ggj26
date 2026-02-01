@@ -14,6 +14,7 @@ func enter(_previous_state: State, args) -> void:
 	cop.investigating_sprite.visible = true
 	cop.get_node("sprite_group").animation_player.play("move", -1, 0.7)
 	cop.get_node("sprite_group").animation_player.seek(randf()*0.4)
+	cop.get_node("notifier").play(cop.get_node("notifier").question_mark)
 
 
 func physics_process(_delta: float) -> void:
