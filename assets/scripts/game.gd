@@ -6,6 +6,7 @@ var level: Level = null
 @export var intro_time: float = 5.0
 const LEVEL_SCENE := preload("res://assets/scenes/level/level.tscn")
 const INTRO_SCENE := preload("res://assets/scenes/ui/introduction.tscn")
+const OUTRO_SCENE := preload("res://assets/scenes/ui/outro.tscn")
 
 func _ready() -> void:
 	main_menu.play.connect(load_intro)
@@ -23,11 +24,13 @@ func load_intro() -> void:
 func load_level() -> void:
 	level = LEVEL_SCENE.instantiate()
 	level.get_node("game_over").over.connect(show_main_menu)
+	level.get_node("game_won").won.connect(show_main_menu)
 	add_child(level)
 	main_menu.visible = false
 
 
 func show_main_menu() -> void:
+	print("Showing main menu")
 	get_tree().paused = false
 	main_menu.visible = true
 	remove_child(level)

@@ -11,3 +11,4 @@ func init_level_context() -> void:
 	LevelContext.cop_coordinator = $world/cop_coordinator
 	LevelContext.game_overlay = $game_overlay
 	LevelContext.game_over = $game_over
+	LevelContext.game_won = $game_won

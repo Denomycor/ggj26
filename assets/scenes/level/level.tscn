@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cq1yfaad8jj5m" path="res://assets/scenes/player/player.tscn" id="1_c33ao"]
 [ext_resource type="Script" uid="uid://dlnow3s8pk5d0" path="res://assets/scripts/level.gd" id="1_v4g74"]
+[ext_resource type="PackedScene" uid="uid://bl2nluyceb6xx" path="res://assets/scenes/ui/outro.tscn" id="2_0qdm2"]
 [ext_resource type="PackedScene" uid="uid://dq5fpqqtr4kn1" path="res://assets/scenes/ui/game_overlay.tscn" id="3_lrkoh"]
 [ext_resource type="Texture2D" uid="uid://beeyxplxa8v1g" path="res://assets/images/level/floor_tile_1.png" id="3_n8in0"]
 [ext_resource type="Script" path="res://assets/scripts/cop_coordinator.gd" id="3_ndvdw"]
@@ -98,6 +99,9 @@ process_mode = 1
 script = ExtResource("1_v4g74")
 
 [node name="game_overlay" parent="." unique_id=44092131 instance=ExtResource("3_lrkoh")]
+
+[node name="game_won" parent="." unique_id=1724218145 instance=ExtResource("2_0qdm2")]
+visible = false
 
 [node name="game_over" parent="." unique_id=19681135 instance=ExtResource("25_r7kiq")]
 visible = false

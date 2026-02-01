@@ -5,3 +5,4 @@ var player: Player
 var cop_coordinator: CopCoordinator
 var game_overlay: GameOverlay
 var game_over: GameOver
+var game_won: GameWon
