@@ -8,6 +8,7 @@ func prepare() -> void:
 	player = owner as Player
 
 func enter(_previous_state: State, _args) -> void:
+	player.get_node("sprite_group").animation_player.play("move", -1, 1.0)
 	player.running_sfx.play()
 
 # func enter(previous_state: State) -> void:
@@ -30,6 +31,7 @@ func physics_process(_delta: float) -> void:
 
 func exit(_next_state: State) -> void:
 	player.velocity.x = 0
+	player.get_node("sprite_group").animation_player.stop()
 	
 	player.running_sfx.stop()
 	# player.animation_player.stop()

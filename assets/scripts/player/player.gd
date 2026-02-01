@@ -4,7 +4,6 @@ class_name Player extends CharacterBody2D
 @export var mask_range: float = 400.0
 @onready var running_sfx: AudioStreamPlayer2D = $running_sfx
 @onready var background_talking_sfx: AudioStreamPlayer2D = $background_talking_sfx
-@onready var sprite: Sprite2D = $Sprite2D
 @onready var mask_area: Area2D = $mask_area
 
 var movement_state_machine := StateMachine.new(self)
@@ -37,7 +36,7 @@ func change_mask_group(mask_group: NpcManager.GROUPS):
 	_change_mask_color(NpcManager.group_colors[group])
 
 func _change_mask_color(color: Color):
-	sprite.modulate = color
+	pass
 
 func _set_mask_range(_range: float):
 	mask_area.find_child("CollisionShape2D").shape.radius = _range

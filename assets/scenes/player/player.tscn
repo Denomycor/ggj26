@@ -1,29 +1,58 @@
 [gd_scene format=3 uid="uid://cq1yfaad8jj5m"]
 
-[ext_resource type="Texture2D" uid="uid://4y40e1ouxtbf" path="res://icon.svg" id="1_oqktf"]
 [ext_resource type="Script" uid="uid://dbic3yapawss5" path="res://assets/scripts/player/player.gd" id="1_ratu8"]
+[ext_resource type="PackedScene" uid="uid://do0o4dnaa4hxe" path="res://assets/scenes/npcs/sprite_group.tscn" id="2_yfi7d"]
+[ext_resource type="Texture2D" uid="uid://f6w3oaq2hfgy" path="res://assets/images/player/front_player_arms.png" id="3_hsamt"]
 [ext_resource type="AudioStream" uid="uid://d1qpxkj278eer" path="res://assets/sounds/running-6358.mp3" id="3_xo733"]
+[ext_resource type="Texture2D" uid="uid://dpc4gynejajyc" path="res://assets/images/player/front_player_legs.png" id="4_b3dqe"]
 [ext_resource type="AudioStream" uid="uid://4a65lbensro3" path="res://assets/sounds/generic-crowd-background-noise-31310.mp3" id="4_wg42c"]
+[ext_resource type="Texture2D" uid="uid://bdog33w4tofdm" path="res://assets/images/player/front_player_chest.png" id="5_u84jc"]
 [ext_resource type="Script" uid="uid://c7jgwule402yb" path="res://assets/scenes/player/background_talking.gd" id="5_xvhxs"]
+[ext_resource type="Texture2D" uid="uid://yqq34san5j2o" path="res://assets/images/player/back_player_arms.png" id="6_q3ml6"]
+[ext_resource type="Texture2D" uid="uid://dby1h15x37uxj" path="res://assets/images/player/back_player_legs.png" id="7_oet4l"]
+[ext_resource type="Texture2D" uid="uid://cee4j2avxxd4l" path="res://assets/images/player/back_player_chest.png" id="8_2tf2h"]
+[ext_resource type="Shader" uid="uid://7xxgiml1cj0b" path="res://assets/shader/color.gdshader" id="12_b3dqe"]
+[ext_resource type="Texture2D" uid="uid://bojud8p7rr0ik" path="res://assets/images/white_circle.png" id="13_u84jc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xvhxs"]
-height = 96.0
+height = 58.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xvhxs"]
 radius = 300.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q3ml6"]
+shader = ExtResource("12_b3dqe")
+shader_parameter/color = Color(0, 0, 0, 0.4745098)
 
 [node name="player" type="CharacterBody2D" unique_id=91995908]
 collision_mask = 4
 script = ExtResource("1_ratu8")
 mask_range = 100.0
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1616018038]
+[node name="sprite_group" parent="." unique_id=796532361 instance=ExtResource("2_yfi7d")]
 z_index = 1
-texture = ExtResource("1_oqktf")
+front_arms = ExtResource("3_hsamt")
+front_legs = ExtResource("4_b3dqe")
+front_torso = ExtResource("5_u84jc")
+back_arms = ExtResource("6_q3ml6")
+back_legs = ExtResource("7_oet4l")
+back_torso = ExtResource("8_2tf2h")
+
+[node name="arms" parent="sprite_group/pivot" parent_id_path=PackedInt32Array(796532361, 100948673) index="0" unique_id=807522690]
+texture = ExtResource("3_hsamt")
+
+[node name="legs" parent="sprite_group/pivot" parent_id_path=PackedInt32Array(796532361, 100948673) index="1" unique_id=1673661748]
+texture = ExtResource("4_b3dqe")
+
+[node name="torso" parent="sprite_group/pivot" parent_id_path=PackedInt32Array(796532361, 100948673) index="2" unique_id=874921155]
+texture = ExtResource("5_u84jc")
+
+[node name="mask" parent="sprite_group/pivot" parent_id_path=PackedInt32Array(796532361, 100948673) index="3" unique_id=1104511130]
+position = Vector2(-3.8146973e-06, -154)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1766660725]
 z_index = 1
-position = Vector2(0, 48)
+position = Vector2(0, 7)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_xvhxs")
 
@@ -46,3 +75,11 @@ shape = SubResource("CircleShape2D_xvhxs")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1715267575]
 zoom = Vector2(0.3, 0.3)
+
+[node name="shadow" type="Sprite2D" parent="." unique_id=1551224348]
+material = SubResource("ShaderMaterial_q3ml6")
+position = Vector2(1.0000005, 6)
+scale = Vector2(0.85999995, 0.5)
+texture = ExtResource("13_u84jc")
+
+[editable path="sprite_group"]
