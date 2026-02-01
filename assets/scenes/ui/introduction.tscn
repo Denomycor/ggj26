@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://bjx8meto2laf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ibnd7"]
+font_size = 24
+
+[node name="Context" type="Control" unique_id=1724218145]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1353616119]
+layout_mode = 0
+offset_right = 967.0
+offset_bottom = 544.0
+color = Color(0.0049865143, 0.035813037, 0.09321161, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1134615876]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -8.5
+offset_right = 20.0
+offset_bottom = 8.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "You have infiltrated a masquerade ball of high society. 
+Scum like you could never be admited.
+
+The guards have been made aware of your presence and are looking for you.
+
+You have always wanted to belong in an event like this and have made a bucket list for the ocasion.
+Try and check every item on it while blending in to the crowd.
+
+Different masked groups are at this event.
+You can switch your mask with the buttons 1-4 and look like you belong.
+Move around with WASD."
+label_settings = SubResource("LabelSettings_ibnd7")
