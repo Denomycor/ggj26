@@ -18,25 +18,6 @@ enum GROUPS {
 	YELLOW,
 }
 
-const group_colors: Array[Color] = [
-	Color.WHITE,
-	Color.RED,
-	Color.GREEN,
-	Color.BLUE,
-	Color.YELLOW,
-	Color.PURPLE,
-	Color.ORANGE,
-	Color.BROWN,
-	Color.CYAN,
-	Color.VIOLET,
-	Color.INDIGO,
-	Color.LIME,
-	Color.MAROON,
-	Color.OLIVE,
-	Color.PINK,
-]
-
-
 var groups: Dictionary[GROUPS, Array] = {}
 var destinations: Dictionary[GROUPS, Area2D] = {}
 var is_on_timer: Dictionary[GROUPS, bool] = {}

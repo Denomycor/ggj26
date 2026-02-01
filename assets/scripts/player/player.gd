@@ -31,6 +31,7 @@ func _physics_process(delta: float) -> void:
 	_check_for_groups()
 
 func change_mask_group(mask_group: NpcManager.GROUPS):
+	group = mask_group
 	$sprite_group.change_mask_to_group(mask_group)
 	$sprite_group.update_mask()
 
