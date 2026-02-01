@@ -12,7 +12,6 @@ class_name NpcManager extends Node
 const NPC_SCENE: PackedScene = preload("res://assets/scenes/npcs/npc.tscn")
 
 enum GROUPS {
-	NONE,
 	RED,
 	GREEN,
 	BLUE,
@@ -64,15 +63,11 @@ func _is_all_group_in_destination(group: GROUPS) -> bool:
 	return false
 
 func _set_random_group_destination() -> void:
-	for group_index in NUM_GROUPS+1:
-		if group_index == GROUPS.NONE:
-			continue
+	for group_index in NUM_GROUPS:
 		_set_group_destination(group_index, get_random_position_in_rectangle(spawn_area))
 
 func _create_group_destination_areas() -> void:
-	for group_index in NUM_GROUPS+1:
-		if group_index == GROUPS.NONE:
-			continue
+	for group_index in NUM_GROUPS:
 		var destination_area: Area2D = Area2D.new()
 		var collision_shape: CollisionShape2D = CollisionShape2D.new()
 		var shape: RectangleShape2D = RectangleShape2D.new()
@@ -86,9 +81,7 @@ func _create_group_destination_areas() -> void:
 
 ## Spawns all NPC groups in random positions within the spawn area
 func _spawn_npc_groups() -> void:
-	for group_index in NUM_GROUPS+1:
-		if group_index == GROUPS.NONE:
-			continue
+	for group_index in NUM_GROUPS:
 		var num_npcs: int = randi_range(MIN_NPCS_PER_GROUP, MAX_NPCS_PER_GROUP)
 		groups[group_index] = []
 		for i in num_npcs:
@@ -122,4 +115,4 @@ func get_random_position_in_rectangle(area: Area2D) -> Vector2:
 	)
 
 func _get_random_group() -> GROUPS:
-	return randi_range(1, NUM_GROUPS) as GROUPS
+	return randi_range(0, NUM_GROUPS - 1) as GROUPS

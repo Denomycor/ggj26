@@ -21,8 +21,8 @@ func _ready() -> void:
 	
 func _input(event):
 	if event is InputEventKey and event.pressed:
-		if event.keycode >= KEY_0 and event.keycode <= KEY_9:
-			var group_num : int = event.keycode - KEY_0
+		if event.keycode >= KEY_1 and event.keycode <= KEY_4:
+			var group_num : int = event.keycode - KEY_1
 			change_mask_group(group_num)
 			LevelContext.game_overlay.mask_bar.change_slot(group_num)
 
