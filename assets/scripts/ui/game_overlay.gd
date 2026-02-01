@@ -51,3 +51,12 @@ func _on_toggle_bucket_list() -> void:
 # Signal handler: Check an item in the bucket list
 func _on_check_bucket_item(item_id: String) -> void:
 	list.get_node(item_id).check()
+	_bucket_items[item_id]["checked"] = true
+	if is_bucket_list_done():
+		LevelContext.game_won.trigger_game_won()
+
+func is_bucket_list_done() -> bool:
+	for item in _bucket_items.values():
+		if not item["checked"]:
+			return false
+	return true

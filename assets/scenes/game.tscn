@@ -6,6 +6,6 @@
 [node name="game" type="Node" unique_id=1973435232]
 process_mode = 3
 script = ExtResource("1_dis88")
-intro_time = 10.0
+intro_time = 2.0
 
 [node name="main_menu" parent="." unique_id=943085525 instance=ExtResource("1_cb66b")]

@@ -45,3 +45,4 @@ Different masked groups are at this event.
 You can switch your mask with the buttons 1-4 and look like you belong.
 Move around with WASD."
 label_settings = SubResource("LabelSettings_ibnd7")
+horizontal_alignment = 1
