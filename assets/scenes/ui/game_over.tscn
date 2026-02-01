@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://koqj87bhrcx1"]
+
+[ext_resource type="Script" uid="uid://o821txlr12kl" path="res://assets/scripts/ui/game_over.gd" id="1_dr6nx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pxk8n"]
+font_size = 30
+
+[node name="game_over" type="CanvasLayer" unique_id=19681135]
+process_mode = 3
+script = ExtResource("1_dr6nx")
+
+[node name="CenterContainer" type="PanelContainer" parent="." unique_id=1340297249]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer2" type="CenterContainer" parent="CenterContainer" unique_id=1475411256]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/CenterContainer2" unique_id=1071076721]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/CenterContainer2/VBoxContainer" unique_id=1086859948]
+layout_mode = 2
+text = "You have been kicked out!"
+label_settings = SubResource("LabelSettings_pxk8n")
+
+[node name="menu" type="Button" parent="CenterContainer/CenterContainer2/VBoxContainer" unique_id=1697807715]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "Menu"

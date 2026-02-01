@@ -27,7 +27,7 @@ func enter(_previous_state: State, args) -> void:
 
 func physics_process(_delta: float) -> void:
 	if(cop.global_position.distance_to(target.global_position) < cop.GAME_OVER_DIST && target is Player):
-		# trigger game over
+		LevelContext.game_over.trigger_game_over()
 		pass
 
 	# I see the enemy chase its position

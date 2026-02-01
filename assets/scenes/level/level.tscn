@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://cie7j2u7lb1ht" path="res://assets/scenes/level/table_prop_2.tscn" id="14_ijwna"]
 [ext_resource type="Texture2D" uid="uid://buf1p40331hbr" path="res://assets/images/props/plate_3.png" id="15_gkd1u"]
 [ext_resource type="Texture2D" uid="uid://3q4sesqsf5hh" path="res://assets/images/props/plate_2.png" id="16_22kcu"]
+[ext_resource type="PackedScene" uid="uid://koqj87bhrcx1" path="res://assets/scenes/ui/game_over.tscn" id="25_r7kiq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x1hhm"]
 texture = ExtResource("3_n8in0")
@@ -81,9 +82,13 @@ agent_radius = 20.0
 size = Vector2(3821, 3756)
 
 [node name="level" type="Node" unique_id=830439741]
+process_mode = 1
 script = ExtResource("1_v4g74")
 
 [node name="game_overlay" parent="." unique_id=44092131 instance=ExtResource("3_lrkoh")]
+
+[node name="game_over" parent="." unique_id=19681135 instance=ExtResource("25_r7kiq")]
+visible = false
 
 [node name="world" type="Node2D" parent="." unique_id=1485806601]
 y_sort_enabled = true
