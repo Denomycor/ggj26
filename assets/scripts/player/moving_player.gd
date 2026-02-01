@@ -15,15 +15,11 @@ func enter(_previous_state: State, _args) -> void:
 	
 
 func physics_process(_delta: float) -> void:
-	var x_axis := Input.get_axis("right", "left")
-	var y_axis := Input.get_axis("down", "up")
-
+	var x_axis := Input.get_axis("left", "right")
+	var y_axis := Input.get_axis("up", "down")
 	if(x_axis or y_axis):
-		player.velocity.x = x_axis * player.speed * -1
-		
-#		player.sprite.sprite.flip_h = x_axis < 0
-
-		player.velocity.y = y_axis * player.speed * -1
+		var motion := Vector2(x_axis, y_axis).normalized()
+		player.velocity = motion * player.speed
 		player.move_and_slide()
 	else:
 		player.movement_state_machine.transition(self, "idle_normal")

@@ -7,7 +7,7 @@ const GAME_OVER_DIST := 100.0
 @export var cone_distance: float = 300.0
 @export var up_close_distance: float = 100.0
 @export var base_cone_angular_speed: float = 120.0  # degrees per second
-@export var chase_speed_multiplier: float = 1.5
+@export var chase_speed_multiplier: float = 2.0
 # Cop must know about the coordinator before running _ready
 @export var cop_coordinator: CopCoordinator
 

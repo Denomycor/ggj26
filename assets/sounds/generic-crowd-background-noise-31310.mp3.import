@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/generic-crowd-background-noise-31310.mp3-9e82
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

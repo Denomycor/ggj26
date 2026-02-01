@@ -1,6 +1,6 @@
 class_name Player extends CharacterBody2D
 
-@export var speed: float = 200.0
+@export var speed: float = 100.0
 @export var mask_range: float = 400.0
 @onready var running_sfx: AudioStreamPlayer2D = $running_sfx
 @onready var background_talking_sfx: AudioStreamPlayer2D = $background_talking_sfx
