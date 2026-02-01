@@ -48,9 +48,5 @@ func _check_for_groups():
 			var npc: Npc = body
 			if npc.group == group:
 				masked_in = true
-				if not prev_masked_in:
-					print("Masked In")
 				return
 	masked_in = false
-	if prev_masked_in:
-		print("Not Masked In")
