@@ -13,8 +13,11 @@ grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1353616119]
 layout_mode = 0
-offset_right = 967.0
-offset_bottom = 544.0
+offset_left = -1839.0
+offset_top = -785.0
+offset_right = -872.0
+offset_bottom = -241.0
+scale = Vector2(5, 5)
 color = Color(0.0049865143, 0.035813037, 0.09321161, 1)
 
 [node name="Label" type="Label" parent="." unique_id=1134615876]
