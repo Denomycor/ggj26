@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dq5fpqqtr4kn1"]
 
-[ext_resource type="Script" path="res://assets/scripts/ui/bucket_list.gd" id="1_5koc0"]
+[ext_resource type="Script" uid="uid://5nsj4wc8a3s2" path="res://assets/scripts/ui/bucket_list.gd" id="1_5koc0"]
 [ext_resource type="Script" uid="uid://b2w0hsspcp7x5" path="res://assets/scripts/ui/game_overlay.gd" id="1_ntj7t"]
-[ext_resource type="Texture2D" uid="uid://c6nrncm2p0pus" path="res://assets/paper.png" id="2_ejgea"]
+[ext_resource type="Texture2D" uid="uid://c6nrncm2p0pus" path="res://assets/images/paper.png" id="2_ejgea"]
 [ext_resource type="Script" path="res://assets/scripts/ui/mask_bar.gd" id="2_fwtsk"]
 [ext_resource type="Texture2D" uid="uid://cjfvr02y0rgdw" path="res://assets/images/ui/ui_background.png" id="3_w1mcy"]
 [ext_resource type="PackedScene" uid="uid://dmnu4ko6cxsjt" path="res://assets/scenes/ui/mask_slot.tscn" id="5_ntj7t"]
@@ -10,19 +10,19 @@
 [ext_resource type="Texture2D" uid="uid://b0lercqlw2giu" path="res://assets/images/npc/masks/front_mask_3.png" id="7_a0m3h"]
 [ext_resource type="Texture2D" uid="uid://ce1xu7yj2ytkb" path="res://assets/images/npc/masks/front_mask_4.png" id="8_7ga40"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_w1mcy"]
-resource_local_to_scene = true
-font_size = 50
-
 [sub_resource type="LabelSettings" id="LabelSettings_ejgea"]
 resource_local_to_scene = true
-font_size = 60
+font_size = 50
 
 [sub_resource type="LabelSettings" id="LabelSettings_a0m3h"]
 resource_local_to_scene = true
 font_size = 60
 
 [sub_resource type="LabelSettings" id="LabelSettings_7ga40"]
+resource_local_to_scene = true
+font_size = 60
+
+[sub_resource type="LabelSettings" id="LabelSettings_y03kf"]
 resource_local_to_scene = true
 font_size = 60
 
@@ -91,7 +91,7 @@ layout_mode = 2
 
 [node name="Label" parent="TextureRect/HBoxContainer/mask_slot" index="1" unique_id=524444675]
 text = "1"
-label_settings = SubResource("LabelSettings_w1mcy")
+label_settings = SubResource("LabelSettings_ejgea")
 
 [node name="mask_slot2" parent="TextureRect/HBoxContainer" unique_id=1668877151 instance=ExtResource("5_ntj7t")]
 layout_mode = 2
@@ -101,7 +101,7 @@ texture = ExtResource("6_ejgea")
 
 [node name="Label" parent="TextureRect/HBoxContainer/mask_slot2" index="1" unique_id=524444675]
 text = "2"
-label_settings = SubResource("LabelSettings_ejgea")
+label_settings = SubResource("LabelSettings_a0m3h")
 
 [node name="mask_slot3" parent="TextureRect/HBoxContainer" unique_id=979273064 instance=ExtResource("5_ntj7t")]
 layout_mode = 2
@@ -111,7 +111,7 @@ texture = ExtResource("7_a0m3h")
 
 [node name="Label" parent="TextureRect/HBoxContainer/mask_slot3" index="1" unique_id=524444675]
 text = "3"
-label_settings = SubResource("LabelSettings_a0m3h")
+label_settings = SubResource("LabelSettings_7ga40")
 
 [node name="mask_slot4" parent="TextureRect/HBoxContainer" unique_id=1418107637 instance=ExtResource("5_ntj7t")]
 layout_mode = 2
@@ -121,7 +121,7 @@ texture = ExtResource("8_7ga40")
 
 [node name="Label" parent="TextureRect/HBoxContainer/mask_slot4" index="1" unique_id=524444675]
 text = "4"
-label_settings = SubResource("LabelSettings_7ga40")
+label_settings = SubResource("LabelSettings_y03kf")
 
 [editable path="TextureRect/HBoxContainer/mask_slot"]
 [editable path="TextureRect/HBoxContainer/mask_slot2"]

@@ -6,6 +6,23 @@
 [ext_resource type="Texture2D" uid="uid://bl8adg5o8jkvr" path="res://assets/images/npc/masks/front_mask_1.png" id="4_j5jn4"]
 [ext_resource type="Texture2D" uid="uid://b0lercqlw2giu" path="res://assets/images/npc/masks/front_mask_3.png" id="5_7dfjg"]
 [ext_resource type="Texture2D" uid="uid://bq1ypv83lmtjy" path="res://assets/images/npc/masks/front_mask_2.png" id="6_57pax"]
+[ext_resource type="Texture2D" uid="uid://col2u6mxcqjkd" path="res://assets/images/props/curtain.png" id="6_iheja"]
+[ext_resource type="Texture2D" uid="uid://b08xh2iumtcma" path="res://assets/images/props/painting.png" id="7_4ms1h"]
+[ext_resource type="Texture2D" uid="uid://cl0ys2ke746j" path="res://assets/images/props/table_2.png" id="8_gath1"]
+[ext_resource type="Texture2D" uid="uid://43f87gxr5ov2" path="res://assets/images/props/table_1.png" id="9_4ms1h"]
+[ext_resource type="Texture2D" uid="uid://c6cwwl3mpgfum" path="res://assets/images/props/column_base.png" id="10_2r4tc"]
+[ext_resource type="Texture2D" uid="uid://b6428owxv7omf" path="res://assets/images/props/lamp.png" id="10_vrde1"]
+[ext_resource type="Texture2D" uid="uid://btqptl48iyo5t" path="res://assets/images/props/bottle_1.png" id="11_2r4tc"]
+[ext_resource type="Texture2D" uid="uid://4knt0xuoyp2y" path="res://assets/images/props/column_pilar.png" id="11_81c32"]
+[ext_resource type="Texture2D" uid="uid://p20yxpa0g54c" path="res://assets/images/props/bottle_2.png" id="12_81c32"]
+[ext_resource type="Texture2D" uid="uid://15mmwwdkcn1a" path="res://assets/images/props/column_pilar_2.png" id="12_830ke"]
+[ext_resource type="Texture2D" uid="uid://btvppi1kigc88" path="res://assets/images/npc/masks/back_mask_1.png" id="13_81c32"]
+[ext_resource type="Texture2D" uid="uid://4g72uu5ah5k2" path="res://assets/images/props/bottle_3.png" id="13_830ke"]
+[ext_resource type="Texture2D" uid="uid://c24cm1bf2bdn4" path="res://assets/images/props/candle_1.png" id="14_2drfa"]
+[ext_resource type="Texture2D" uid="uid://bq1c1lx8ejewe" path="res://assets/images/props/candle_2.png" id="15_qsmwi"]
+[ext_resource type="Texture2D" uid="uid://b6vog2jefsydx" path="res://assets/images/props/plate_1.png" id="16_85t7q"]
+[ext_resource type="Texture2D" uid="uid://3q4sesqsf5hh" path="res://assets/images/props/plate_2.png" id="17_qfh1i"]
+[ext_resource type="Texture2D" uid="uid://buf1p40331hbr" path="res://assets/images/props/plate_3.png" id="18_4x2qo"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5djdc"]
 font_size = 51
@@ -30,6 +47,7 @@ current_tab = 0
 tabs_visible = false
 
 [node name="main" type="CenterContainer" parent="TabContainer" unique_id=1213997685]
+z_index = 7
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -38,7 +56,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="TabContainer/main/VBoxContainer" unique_id=1302655103]
 layout_mode = 2
-text = "Placeholder"
+text = "Party crasher"
 label_settings = SubResource("LabelSettings_5djdc")
 
 [node name="play" type="Button" parent="TabContainer/main/VBoxContainer" unique_id=186796475]
@@ -54,6 +72,160 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Credits"
+
+[node name="FrontMask1" type="Sprite2D" parent="TabContainer/main/VBoxContainer" unique_id=961667227]
+position = Vector2(37, -131)
+texture = ExtResource("4_j5jn4")
+
+[node name="FrontMask2" type="Sprite2D" parent="TabContainer/main/VBoxContainer" unique_id=1203588780]
+position = Vector2(317, -39)
+texture = ExtResource("6_57pax")
+
+[node name="Table2" type="Sprite2D" parent="TabContainer/main/VBoxContainer" unique_id=987891914]
+z_index = 1
+position = Vector2(-283, 337)
+texture = ExtResource("8_gath1")
+
+[node name="Table3" type="Sprite2D" parent="TabContainer/main/VBoxContainer" unique_id=918030407]
+position = Vector2(372, 313.00006)
+scale = Vector2(0.55769235, 0.5127744)
+texture = ExtResource("8_gath1")
+
+[node name="Table4" type="Sprite2D" parent="TabContainer/main/VBoxContainer" unique_id=35328100]
+position = Vector2(385.12494, 362.56256)
+scale = Vector2(0.5557689, 0.48996443)
+texture = ExtResource("8_gath1")
+
+[node name="Table6" type="Sprite2D" parent="TabContainer/main/VBoxContainer" unique_id=744188428]
+position = Vector2(498.125, 362.56256)
+scale = Vector2(0.5557689, 0.48996443)
+texture = ExtResource("8_gath1")
+
+[node name="Table5" type="Sprite2D" parent="TabContainer/main/VBoxContainer" unique_id=1288138568]
+z_index = -1
+position = Vector2(516.99994, 305.00006)
+scale = Vector2(0.5557689, 0.48996443)
+texture = ExtResource("8_gath1")
+
+[node name="ColumnBase" type="Sprite2D" parent="TabContainer/main/VBoxContainer" unique_id=1823123210]
+position = Vector2(-323, 314)
+texture = ExtResource("10_2r4tc")
+
+[node name="ColumnPilar" type="Sprite2D" parent="TabContainer/main/VBoxContainer" unique_id=1103825689]
+position = Vector2(-323, 249)
+texture = ExtResource("11_81c32")
+
+[node name="ColumnPilar2" type="Sprite2D" parent="TabContainer/main/VBoxContainer" unique_id=1947671863]
+position = Vector2(-323, 172)
+texture = ExtResource("12_830ke")
+
+[node name="ColumnBase2" type="Sprite2D" parent="TabContainer/main/VBoxContainer" unique_id=1293007457]
+position = Vector2(489, 257)
+texture = ExtResource("10_2r4tc")
+
+[node name="ColumnPilar3" type="Sprite2D" parent="TabContainer/main/VBoxContainer" unique_id=2107858447]
+position = Vector2(489, 189)
+texture = ExtResource("11_81c32")
+
+[node name="ColumnPilar4" type="Sprite2D" parent="TabContainer/main/VBoxContainer" unique_id=640965268]
+position = Vector2(489, 111)
+texture = ExtResource("12_830ke")
+
+[node name="ColumnPilar5" type="Sprite2D" parent="TabContainer/main/VBoxContainer" unique_id=354007032]
+position = Vector2(-323, 101)
+texture = ExtResource("12_830ke")
+
+[node name="Lamp" type="Sprite2D" parent="TabContainer/main/VBoxContainer" unique_id=852086926]
+z_index = 1
+position = Vector2(-307, 257)
+texture = ExtResource("10_vrde1")
+
+[node name="Table1" type="Sprite2D" parent="TabContainer/main/VBoxContainer" unique_id=2140942578]
+position = Vector2(434.5, 301.5)
+texture = ExtResource("9_4ms1h")
+
+[node name="Candle2" type="Sprite2D" parent="TabContainer/main/VBoxContainer/Table1" unique_id=696616843]
+position = Vector2(33.5, -103.5)
+texture = ExtResource("15_qsmwi")
+
+[node name="Candle1" type="Sprite2D" parent="TabContainer/main/VBoxContainer/Table1" unique_id=785471381]
+z_index = 1
+position = Vector2(106.5, -70.5)
+texture = ExtResource("14_2drfa")
+
+[node name="Bottle3" type="Sprite2D" parent="TabContainer/main/VBoxContainer/Table1" unique_id=866377576]
+z_index = 2
+position = Vector2(-77.5, -78.5)
+texture = ExtResource("13_830ke")
+
+[node name="Bottle2" type="Sprite2D" parent="TabContainer/main/VBoxContainer/Table1" unique_id=1318535118]
+z_index = 2
+position = Vector2(-94.5, -94.5)
+texture = ExtResource("12_81c32")
+
+[node name="Plate1" type="Sprite2D" parent="TabContainer/main/VBoxContainer/Table1" unique_id=274441648]
+position = Vector2(-27.5, -60.5)
+texture = ExtResource("16_85t7q")
+
+[node name="Plate3" type="Sprite2D" parent="TabContainer/main/VBoxContainer/Table1" unique_id=855546458]
+position = Vector2(90.5, -62.5)
+texture = ExtResource("18_4x2qo")
+
+[node name="Plate2" type="Sprite2D" parent="TabContainer/main/VBoxContainer" unique_id=855322684]
+z_index = 1
+position = Vector2(-259, 281)
+scale = Vector2(0.73188406, 0.80851066)
+texture = ExtResource("17_qfh1i")
+
+[node name="Bottle4" type="Sprite2D" parent="TabContainer/main/VBoxContainer" unique_id=430012048]
+z_index = 2
+position = Vector2(-210.99997, 152.99997)
+scale = Vector2(1.0217391, 0.89506173)
+texture = ExtResource("11_2r4tc")
+
+[node name="Bottle5" type="Sprite2D" parent="TabContainer/main/VBoxContainer" unique_id=858728865]
+z_index = 1
+position = Vector2(-188.25, 143)
+scale = Vector2(1.1129032, 0.82608694)
+texture = ExtResource("12_81c32")
+
+[node name="Bottle6" type="Sprite2D" parent="TabContainer/main/VBoxContainer" unique_id=1511890315]
+z_index = 1
+position = Vector2(-219.5, 134.5)
+scale = Vector2(0.9166667, 0.6944446)
+texture = ExtResource("13_830ke")
+
+[node name="BackMask1" type="Sprite2D" parent="TabContainer/main/VBoxContainer" unique_id=1737236187]
+position = Vector2(-205.00002, 145)
+scale = Vector2(1.4358974, 1.4545455)
+texture = ExtResource("13_81c32")
+
+[node name="FrontMask3" type="Sprite2D" parent="TabContainer/main/VBoxContainer" unique_id=911318521]
+position = Vector2(181, -132)
+texture = ExtResource("5_7dfjg")
+
+[node name="Curtain" type="Sprite2D" parent="TabContainer/main/VBoxContainer" unique_id=1160888631]
+z_index = 1
+position = Vector2(485, 57)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_iheja")
+
+[node name="FrontMask4" type="Sprite2D" parent="TabContainer/main/VBoxContainer" unique_id=946778999]
+position = Vector2(-107, -31)
+texture = ExtResource("2_or24b")
+
+[node name="Curtain2" type="Sprite2D" parent="TabContainer/main/VBoxContainer" unique_id=1802855637]
+z_index = 1
+position = Vector2(-275, 57)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_iheja")
+flip_h = true
+
+[node name="Painting" type="Sprite2D" parent="TabContainer/main/VBoxContainer" unique_id=1774156604]
+z_index = -7
+position = Vector2(-204.00002, 143.99991)
+scale = Vector2(0.8880368, 0.9060914)
+texture = ExtResource("7_4ms1h")
 
 [node name="credits" type="CenterContainer" parent="TabContainer" unique_id=1050198392]
 visible = false
