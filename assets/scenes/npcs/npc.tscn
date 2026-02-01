@@ -25,6 +25,7 @@ cohesion_weight = 0.5
 separation_weight = 1.5
 destination_weight = 2.0
 sensitivity = 6.0
+update_neighbors_interval = 20
 
 [node name="sprite_group" parent="." unique_id=796532361 instance=ExtResource("2_be1e5")]
 z_index = 1

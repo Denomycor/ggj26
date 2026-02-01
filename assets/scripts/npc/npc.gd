@@ -12,7 +12,13 @@ const SPEED := 200.0
 @export var destination_weight: float = 0.5
 @export var sensitivity: float = 10
 
+@export var update_neighbors_interval: int = 10
+@onready var update_neighbor_offset: int = randi() % update_neighbors_interval
+var frame_count: int = 0
+
 var npc_manager: NpcManager
+var saved_neighbors: Array = []
+var saved_group_members: Array = []
 
 var destination: Vector2 = Vector2.ZERO
 
@@ -23,12 +29,16 @@ var group : NpcManager.GROUPS
 var state_machine := StateMachine.new(self)
 
 func _ready() -> void:
+	_find_neighbors()
 	_set_neighbor_range(neighbor_radius)
 	state_machine.add_state(MovingNpc.new("moving"))
 	state_machine.starting_state("moving", null)
 
 
 func _physics_process(delta: float) -> void:
+	frame_count += 1
+	if frame_count % update_neighbors_interval == update_neighbor_offset:
+		_find_neighbors()
 	state_machine.physics_process(delta)
 
 func _set_neighbor_range(_range: float):
@@ -66,19 +76,21 @@ func _get_destination_force() -> Vector2:
 	return force.normalized()
 
 func _get_neighbors() -> Array:
-	var neighbors: Array = []
-	for body in neighbor_area.get_overlapping_bodies():
-		if body is Npc and body != self or body is Player:
-			neighbors.append(body)
-	return neighbors
+	return saved_neighbors
 
 func _get_group_members() -> Array:
+	return saved_group_members
+
+func _find_neighbors() -> void:
+	var neighbors: Array = []
 	var group_members: Array = []
 	for body in neighbor_area.get_overlapping_bodies():
 		if body is Npc and body != self or body is Player:
+			neighbors.append(body)
 			if body.group == group:
 				group_members.append(body)
-	return group_members
+	saved_neighbors = neighbors
+	saved_group_members = group_members
 
 func set_destination(new_destination: Vector2) -> void:
 	destination = new_destination
