@@ -79,7 +79,7 @@ source_geometry_group_name = &"props"
 agent_radius = 50.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0jpvh"]
-size = Vector2(3821, 3756)
+size = Vector2(3490, 3464)
 
 [node name="level" type="Node" unique_id=830439741]
 process_mode = 1
@@ -398,10 +398,10 @@ MIN_NPCS_PER_GROUP = 10
 MAX_NPCS_PER_GROUP = 14
 
 [node name="spawn_area" type="Area2D" parent="npcManager" unique_id=999269458]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="npcManager/spawn_area" unique_id=1815497560]
-position = Vector2(448.5, -522)
+visible = false
+position = Vector2(458, -499)
 shape = SubResource("RectangleShape2D_0jpvh")
 
 [node name="event_manager" type="Node" parent="." unique_id=1105024339 node_paths=PackedStringArray("game_overlay")]

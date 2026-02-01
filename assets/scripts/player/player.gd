@@ -13,7 +13,6 @@ var masked_in := false
 
 func _ready() -> void:
 	_set_mask_range(mask_range)
-	_change_mask_color(mask_color)
 	movement_state_machine.add_state(IdleState.new("idle_normal"))
 	movement_state_machine.add_state(RunState.new("running"))
 #	movement_state_machine.add_state(HidingMoveState.new("move_hiding"))
@@ -32,11 +31,8 @@ func _physics_process(delta: float) -> void:
 	_check_for_groups()
 
 func change_mask_group(mask_group: NpcManager.GROUPS):
-	group = mask_group
-	_change_mask_color(NpcManager.group_colors[group])
-
-func _change_mask_color(color: Color):
-	pass
+	$sprite_group.change_mask_to_group(mask_group)
+	$sprite_group.update_mask()
 
 func _set_mask_range(_range: float):
 	mask_area.find_child("CollisionShape2D").shape.radius = _range

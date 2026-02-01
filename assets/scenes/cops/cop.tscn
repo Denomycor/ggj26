@@ -36,7 +36,6 @@ cone_angle = 40.0
 cone_distance = 1000.0
 up_close_distance = 300.0
 base_cone_angular_speed = 60.0
-chase_speed_multiplier = 2.0
 
 [node name="notifier" type="Sprite2D" parent="." unique_id=1078224303]
 position = Vector2(0, -256)

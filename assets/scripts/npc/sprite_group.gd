@@ -36,6 +36,14 @@ func set_facing_front(value: bool) -> void:
 		$pivot/mask.texture = back_mask
 
 
+func update_mask() -> void:
+	if is_front:
+		$pivot/mask.texture = front_mask
+	else:
+		$pivot/mask.texture = back_mask
+	$maskPlayer.play("mask")
+	
+
 func change_mask_to_group(group: NpcManager.GROUPS) -> void:
 	if(group == NpcManager.GROUPS.RED):
 		back_mask = preload("res://assets/images/npc/masks/back_mask_1.png")
