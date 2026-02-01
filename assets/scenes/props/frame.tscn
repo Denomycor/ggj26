@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://dvdpamo0b0gif"]
+
+[ext_resource type="Texture2D" uid="uid://b08xh2iumtcma" path="res://assets/images/props/painting.png" id="1_ne3o1"]
+[ext_resource type="Script" uid="uid://bmy84w2timntb" path="res://assets/scripts/props/frame.gd" id="1_wliwx"]
+[ext_resource type="Texture2D" uid="uid://btqptl48iyo5t" path="res://assets/images/props/bottle_1.png" id="2_wliwx"]
+[ext_resource type="Texture2D" uid="uid://p20yxpa0g54c" path="res://assets/images/props/bottle_2.png" id="3_x3abm"]
+[ext_resource type="Texture2D" uid="uid://4g72uu5ah5k2" path="res://assets/images/props/bottle_3.png" id="4_3m6sn"]
+[ext_resource type="Texture2D" uid="uid://c24cm1bf2bdn4" path="res://assets/images/props/candle_1.png" id="5_2urur"]
+[ext_resource type="Texture2D" uid="uid://bq1c1lx8ejewe" path="res://assets/images/props/candle_2.png" id="6_c2xxl"]
+[ext_resource type="Texture2D" uid="uid://b6vog2jefsydx" path="res://assets/images/props/plate_1.png" id="7_llstl"]
+[ext_resource type="Texture2D" uid="uid://3q4sesqsf5hh" path="res://assets/images/props/plate_2.png" id="8_ebxyj"]
+[ext_resource type="Texture2D" uid="uid://buf1p40331hbr" path="res://assets/images/props/plate_3.png" id="9_fxub5"]
+[ext_resource type="Texture2D" uid="uid://b6428owxv7omf" path="res://assets/images/props/lamp.png" id="10_0py8y"]
+[ext_resource type="Texture2D" uid="uid://bl8adg5o8jkvr" path="res://assets/images/npc/masks/front_mask_1.png" id="11_nunak"]
+[ext_resource type="Texture2D" uid="uid://bq1ypv83lmtjy" path="res://assets/images/npc/masks/front_mask_2.png" id="12_qtqkg"]
+[ext_resource type="Texture2D" uid="uid://b0lercqlw2giu" path="res://assets/images/npc/masks/front_mask_3.png" id="13_ywpc7"]
+[ext_resource type="Texture2D" uid="uid://ce1xu7yj2ytkb" path="res://assets/images/npc/masks/front_mask_4.png" id="14_16thg"]
+
+[node name="Frame" type="Node2D" unique_id=283552916]
+script = ExtResource("1_wliwx")
+
+[node name="Painting" type="Sprite2D" parent="." unique_id=220040003]
+texture = ExtResource("1_ne3o1")
+
+[node name="Props" type="Node2D" parent="." unique_id=501196987]
+
+[node name="Bottle1" type="Sprite2D" parent="Props" unique_id=489745545]
+visible = false
+texture = ExtResource("2_wliwx")
+
+[node name="Bottle2" type="Sprite2D" parent="Props" unique_id=1752640580]
+visible = false
+texture = ExtResource("3_x3abm")
+
+[node name="Bottle3" type="Sprite2D" parent="Props" unique_id=105157036]
+visible = false
+texture = ExtResource("4_3m6sn")
+
+[node name="Candle1" type="Sprite2D" parent="Props" unique_id=1847510985]
+visible = false
+position = Vector2(8, 0)
+texture = ExtResource("5_2urur")
+
+[node name="Candle2" type="Sprite2D" parent="Props" unique_id=1398583996]
+visible = false
+position = Vector2(8, 0)
+texture = ExtResource("6_c2xxl")
+
+[node name="Plate1" type="Sprite2D" parent="Props" unique_id=1347572962]
+visible = false
+position = Vector2(0, -8)
+texture = ExtResource("7_llstl")
+
+[node name="Plate2" type="Sprite2D" parent="Props" unique_id=2127252831]
+visible = false
+position = Vector2(0, -8)
+texture = ExtResource("8_ebxyj")
+
+[node name="Plate3" type="Sprite2D" parent="Props" unique_id=1167171107]
+visible = false
+position = Vector2(0, -8)
+texture = ExtResource("9_fxub5")
+
+[node name="Lamp" type="Sprite2D" parent="Props" unique_id=1986481277]
+visible = false
+position = Vector2(0, 8)
+texture = ExtResource("10_0py8y")
+
+[node name="FrontMask1" type="Sprite2D" parent="Props" unique_id=474922680]
+visible = false
+texture = ExtResource("11_nunak")
+
+[node name="FrontMask2" type="Sprite2D" parent="Props" unique_id=7522034]
+visible = false
+texture = ExtResource("12_qtqkg")
+
+[node name="FrontMask3" type="Sprite2D" parent="Props" unique_id=1387372657]
+visible = false
+texture = ExtResource("13_ywpc7")
+
+[node name="FrontMask4" type="Sprite2D" parent="Props" unique_id=222213919]
+visible = false
+texture = ExtResource("14_16thg")

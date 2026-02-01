@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://ocb0im0p18ck"]
+
+[ext_resource type="Texture2D" uid="uid://43f87gxr5ov2" path="res://assets/images/props/table_1.png" id="1_2bqja"]
+[ext_resource type="Texture2D" uid="uid://cl0ys2ke746j" path="res://assets/images/props/table_2.png" id="2_y64h6"]
+[ext_resource type="Texture2D" uid="uid://b6428owxv7omf" path="res://assets/images/props/lamp.png" id="3_mm4ma"]
+[ext_resource type="Texture2D" uid="uid://4g72uu5ah5k2" path="res://assets/images/props/bottle_3.png" id="4_0lbkc"]
+[ext_resource type="Texture2D" uid="uid://p20yxpa0g54c" path="res://assets/images/props/bottle_2.png" id="5_03hp6"]
+[ext_resource type="Texture2D" uid="uid://btqptl48iyo5t" path="res://assets/images/props/bottle_1.png" id="6_4g6vn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2bqja"]
+size = Vector2(448, 312)
+
+[node name="Bar" type="Node2D" unique_id=328609662]
+
+[node name="Table1" type="Sprite2D" parent="." unique_id=1856806484]
+position = Vector2(-114.5, -114)
+texture = ExtResource("1_2bqja")
+
+[node name="Table2" type="Sprite2D" parent="." unique_id=1305241388]
+position = Vector2(125.5, 110)
+texture = ExtResource("2_y64h6")
+
+[node name="Table3" type="Sprite2D" parent="." unique_id=681520209]
+position = Vector2(117.5, -42)
+texture = ExtResource("2_y64h6")
+
+[node name="Lamp" type="Sprite2D" parent="." unique_id=1768815434]
+position = Vector2(-202.5, -194)
+texture = ExtResource("3_mm4ma")
+
+[node name="Bottle3" type="Sprite2D" parent="." unique_id=2060342256]
+position = Vector2(-130.5, -194)
+texture = ExtResource("4_0lbkc")
+
+[node name="Bottle2" type="Sprite2D" parent="." unique_id=2112856339]
+position = Vector2(-26.5, -194)
+texture = ExtResource("5_03hp6")
+
+[node name="Bottle1" type="Sprite2D" parent="." unique_id=1947236269]
+position = Vector2(-82.5, -178)
+texture = ExtResource("6_4g6vn")
+
+[node name="Bottle4" type="Sprite2D" parent="." unique_id=420943124]
+position = Vector2(141.5, 38)
+texture = ExtResource("4_0lbkc")
+
+[node name="Bottle5" type="Sprite2D" parent="." unique_id=2122861900]
+position = Vector2(101.5, 38)
+texture = ExtResource("4_0lbkc")
+
+[node name="Bottle6" type="Sprite2D" parent="." unique_id=2007815807]
+position = Vector2(93.5, -106)
+texture = ExtResource("5_03hp6")
+
+[node name="Bottle7" type="Sprite2D" parent="." unique_id=1730319707]
+position = Vector2(133.5, -98)
+texture = ExtResource("6_4g6vn")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=934284505]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=534077206]
+position = Vector2(-40, 20)
+shape = SubResource("RectangleShape2D_2bqja")
