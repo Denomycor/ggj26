@@ -9,7 +9,7 @@ const ITEM_SCENE: PackedScene = preload("res://assets/scenes/ui/bucket_list_item
 # Internal state
 var _bucket_list_visible: bool = true
 var _bucket_items: Dictionary = {}  # item_id -> {message: String, checked: bool}
-@onready var mask_bar: MaskBar = $HBoxContainer
+@export var mask_bar: MaskBar
 
 # UI References (set these in the editor or via code)
 @onready var list_container: Control = $bucket_list
