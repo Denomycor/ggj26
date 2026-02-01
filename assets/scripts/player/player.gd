@@ -25,6 +25,9 @@ func _input(event):
 			var group_num : int = event.keycode - KEY_1
 			change_mask_group(group_num)
 			LevelContext.game_overlay.mask_bar.change_slot(group_num)
+		if event.keycode == KEY_L:
+			LevelContext.game_overlay.toggle_bucket_list.emit()
+			
 
 func _physics_process(delta: float) -> void:
 	movement_state_machine.physics_process(delta)
@@ -51,6 +54,3 @@ func _check_for_groups():
 	masked_in = false
 	if prev_masked_in:
 		print("Not Masked In")
-
-	if Input.is_physical_key_pressed(KEY_L):
-		LevelContext.game_overlay.toggle_bucket_list.emit()
