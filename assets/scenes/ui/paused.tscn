@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://23lk0tih4wyr"]
+
+[ext_resource type="Script" uid="uid://dk4qppdpad5w2" path="res://assets/scripts/ui/paused.gd" id="1_m80v8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gybuq"]
+font_size = 30
+
+[node name="paused" type="CanvasLayer" unique_id=812274135]
+process_mode = 3
+script = ExtResource("1_m80v8")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=136781728]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer" unique_id=1961019398]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/CenterContainer" unique_id=1954489283]
+layout_mode = 2
+text = "Paused"
+label_settings = SubResource("LabelSettings_gybuq")

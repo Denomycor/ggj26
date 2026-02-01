@@ -1,35 +1,154 @@
 [gd_scene format=3 uid="uid://bnjh00tg27nu7"]
 
 [ext_resource type="Script" uid="uid://w8hl87da2yyf" path="res://assets/scripts/ui/main_menu.gd" id="1_4lhqn"]
+[ext_resource type="Texture2D" uid="uid://ce1xu7yj2ytkb" path="res://assets/images/npc/masks/front_mask_4.png" id="2_or24b"]
+[ext_resource type="Texture2D" uid="uid://cbgvr8qu030b7" path="res://assets/images/cop/front_policeman_head.png" id="3_75pbp"]
+[ext_resource type="Texture2D" uid="uid://bl8adg5o8jkvr" path="res://assets/images/npc/masks/front_mask_1.png" id="4_j5jn4"]
+[ext_resource type="Texture2D" uid="uid://b0lercqlw2giu" path="res://assets/images/npc/masks/front_mask_3.png" id="5_7dfjg"]
+[ext_resource type="Texture2D" uid="uid://bq1ypv83lmtjy" path="res://assets/images/npc/masks/front_mask_2.png" id="6_57pax"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5djdc"]
 font_size = 51
+
+[sub_resource type="LabelSettings" id="LabelSettings_vxvjd"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_hyerr"]
+font_size = 25
 
 [node name="main_menu" type="CanvasLayer" unique_id=943085525]
 process_mode = 3
 script = ExtResource("1_4lhqn")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=219184142]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+[node name="TabContainer" type="TabContainer" parent="." unique_id=1150399749]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+current_tab = 0
+tabs_visible = false
 
-[node name="Label" type="Label" parent="VBoxContainer" unique_id=1302655103]
+[node name="main" type="CenterContainer" parent="TabContainer" unique_id=1213997685]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/main" unique_id=219184142]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/main/VBoxContainer" unique_id=1302655103]
 layout_mode = 2
 text = "Placeholder"
 label_settings = SubResource("LabelSettings_5djdc")
 
-[node name="play" type="Button" parent="VBoxContainer" unique_id=186796475]
+[node name="play" type="Button" parent="TabContainer/main/VBoxContainer" unique_id=186796475]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Execute"
+
+[node name="credits" type="Button" parent="TabContainer/main/VBoxContainer" unique_id=48232148]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Credits"
+
+[node name="credits" type="CenterContainer" parent="TabContainer" unique_id=1050198392]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/credits" unique_id=1054438996]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/credits/VBoxContainer" unique_id=1556918098]
+layout_mode = 2
+text = "The Gas station team:"
+label_settings = SubResource("LabelSettings_vxvjd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/credits/VBoxContainer" unique_id=230932447]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="TabContainer/credits/VBoxContainer/HBoxContainer" unique_id=166316546]
+layout_mode = 2
+text = "Afonso Esteves"
+label_settings = SubResource("LabelSettings_hyerr")
+
+[node name="TextureRect" type="TextureRect" parent="TabContainer/credits/VBoxContainer/HBoxContainer" unique_id=807340476]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_or24b")
+expand_mode = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/credits/VBoxContainer" unique_id=1460274543]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="TabContainer/credits/VBoxContainer/HBoxContainer2" unique_id=1824858911]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("3_75pbp")
+expand_mode = 5
+
+[node name="Label" type="Label" parent="TabContainer/credits/VBoxContainer/HBoxContainer2" unique_id=181620393]
+layout_mode = 2
+text = "Ricardo Diogo"
+label_settings = SubResource("LabelSettings_hyerr")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="TabContainer/credits/VBoxContainer" unique_id=273905836]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="TabContainer/credits/VBoxContainer/HBoxContainer3" unique_id=1495119324]
+layout_mode = 2
+text = "João Vera"
+label_settings = SubResource("LabelSettings_hyerr")
+
+[node name="TextureRect" type="TextureRect" parent="TabContainer/credits/VBoxContainer/HBoxContainer3" unique_id=1028339819]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("4_j5jn4")
+expand_mode = 3
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="TabContainer/credits/VBoxContainer" unique_id=1186696808]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="TabContainer/credits/VBoxContainer/HBoxContainer4" unique_id=1162746461]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_7dfjg")
+expand_mode = 5
+
+[node name="Label" type="Label" parent="TabContainer/credits/VBoxContainer/HBoxContainer4" unique_id=480029899]
+layout_mode = 2
+text = "Pedro Trindade"
+label_settings = SubResource("LabelSettings_hyerr")
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="TabContainer/credits/VBoxContainer" unique_id=1023675724]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="TabContainer/credits/VBoxContainer/HBoxContainer5" unique_id=10021036]
+layout_mode = 2
+text = "Vicente Sousa"
+label_settings = SubResource("LabelSettings_hyerr")
+
+[node name="TextureRect" type="TextureRect" parent="TabContainer/credits/VBoxContainer/HBoxContainer5" unique_id=428332250]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("6_57pax")
+expand_mode = 3
+
+[node name="HSeparator" type="HSeparator" parent="TabContainer/credits/VBoxContainer" unique_id=1247751039]
+layout_mode = 2
+
+[node name="back" type="Button" parent="TabContainer/credits/VBoxContainer" unique_id=47093811]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Back"
