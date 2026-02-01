@@ -13,6 +13,7 @@ var _bucket_items: Dictionary = {}  # item_id -> {message: String, checked: bool
 
 # UI References (set these in the editor or via code)
 @onready var list_container: Control = $bucket_list
+@onready var paper: Sprite2D = $Paper
 @onready var list: VBoxContainer = $bucket_list/VBoxContainer
 
 
@@ -43,6 +44,7 @@ func add_bucket_item(item_id: String, message: String) -> void:
 # Signal handler: Toggle bucket list visibility
 func _on_toggle_bucket_list() -> void:
 	_bucket_list_visible = not _bucket_list_visible
+	paper.visible = _bucket_list_visible
 	list_container.visible = _bucket_list_visible
 
 
