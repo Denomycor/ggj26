@@ -66,7 +66,7 @@ func _spawn_npc_groups() -> void:
 		var num_npcs: int = randi_range(MIN_NPCS_PER_GROUP, MAX_NPCS_PER_GROUP)
 		groups[group_index] = []
 		for i in num_npcs:
-			var npc: Npc = _spawn_grouped_npc(group_index)
+			var npc: Npc = _spawn_grouped_npc(group_index % 4)
 			npc.global_position = get_random_position_in_rectangle(destinations[group_index])
 			npc.npc_manager = self
 			npc.set_destination(npc.global_position)

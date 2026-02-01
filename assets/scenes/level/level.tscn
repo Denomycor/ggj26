@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dlnow3s8pk5d0" path="res://assets/scripts/level.gd" id="1_v4g74"]
 [ext_resource type="PackedScene" uid="uid://dq5fpqqtr4kn1" path="res://assets/scenes/ui/game_overlay.tscn" id="3_lrkoh"]
 [ext_resource type="Texture2D" uid="uid://beeyxplxa8v1g" path="res://assets/images/level/floor_tile_1.png" id="3_n8in0"]
-[ext_resource type="Script" uid="uid://oj0kfb0sgqxb" path="res://assets/scripts/cop_coordinator.gd" id="3_ndvdw"]
+[ext_resource type="Script" path="res://assets/scripts/cop_coordinator.gd" id="3_ndvdw"]
 [ext_resource type="PackedScene" uid="uid://dr2net8snh7jj" path="res://assets/scenes/utils/EventArea.tscn" id="3_vpecr"]
 [ext_resource type="Script" uid="uid://btqd5y1k53ymj" path="res://assets/scripts/npc/manager/npc_manager.gd" id="4_ndvdw"]
 [ext_resource type="Texture2D" uid="uid://dugjosy1457y" path="res://assets/images/level/wall_tile_1.png" id="4_ufvf1"]
@@ -495,8 +495,9 @@ cop_coordinator = NodePath("../cop_coordinator")
 
 [node name="npcManager" type="Node" parent="." unique_id=1160828432]
 script = ExtResource("4_ndvdw")
-MIN_NPCS_PER_GROUP = 10
-MAX_NPCS_PER_GROUP = 14
+NUM_GROUPS = 12
+MIN_NPCS_PER_GROUP = 15
+MAX_NPCS_PER_GROUP = 20
 
 [node name="spawn_area" type="Area2D" parent="npcManager" unique_id=999269458]
 
