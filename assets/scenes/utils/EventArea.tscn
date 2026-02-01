@@ -1,9 +1,42 @@
 [gd_scene format=3 uid="uid://dr2net8snh7jj"]
 
 [ext_resource type="Script" uid="uid://cyqrqsm6c8353" path="res://assets/scripts/events/event.gd" id="1_6ajf7"]
+[ext_resource type="Texture2D" uid="uid://ddysxb45hc21u" path="res://assets/images/star.svg" id="3_ea3dn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dneko"]
 radius = 256.0
+
+[sub_resource type="Curve" id="Curve_1v6fw"]
+_data = [Vector2(0, 0), 0.0, 3.423564, 0, 0, Vector2(1, 0), -3.5770857, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ea3dn"]
+curve = SubResource("Curve_1v6fw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1v6fw"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 256.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.099999994
+scale_max = 0.14999999
+scale_curve = SubResource("CurveTexture_ea3dn")
+color = Color(1, 1, 0, 1)
+sub_emitter_mode = 2
+sub_emitter_amount_at_end = 12
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ea3dn"]
+particle_flag_disable_z = true
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+spread = 180.0
+initial_velocity_min = 45.02
+initial_velocity_max = 45.02
+gravity = Vector3(0, 0, 0)
+scale_min = 0.099999994
+scale_max = 0.14999999
+scale_curve = SubResource("CurveTexture_ea3dn")
+color = Color(1, 1, 0.4745098, 1)
 
 [node name="EventArea" type="Node2D" unique_id=1607882343]
 script = ExtResource("1_6ajf7")
@@ -14,3 +47,17 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=741722182]
 shape = SubResource("CircleShape2D_dneko")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1487635061]
+amount = 20
+sub_emitter = NodePath("../GPUParticles2D2")
+texture = ExtResource("3_ea3dn")
+process_material = SubResource("ParticleProcessMaterial_1v6fw")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="." unique_id=525084899]
+emitting = false
+amount = 15
+texture = ExtResource("3_ea3dn")
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ea3dn")
